@@ -1,6 +1,3 @@
-Курс форнтэнд разоаботчика 6-курс , сервис Фмтнес
-
-
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
