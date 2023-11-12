@@ -10,6 +10,8 @@ export const GlobalsStyeProject = createGlobalStyle`
   padding: 0;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+
+
 }
 
 *:before,
@@ -47,7 +49,7 @@ ul li {
 
 html,
 body {
-  width: 100%;
+  width: 1440px;
   height: 100%;
   font-family: "StratosSkyeng", sans-serif;
   color: #000;
