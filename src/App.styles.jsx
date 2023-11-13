@@ -30,16 +30,25 @@ ul li {
 
 @font-face {
   font-family: 'StratosSkyeng', sans-serif;
-  src: local("StratosSkyeng"), local("StratosSkyeng"),
     url("../public/fonts/StratosSkyeng.woff2") format("woff2"),
     url("../public/fonts/StratosSkyeng.woff") format("woff"),
-    url("../public/fonts/StratosSkyeng.ttf") format("truetype")
-  
+
+}
+
+@font-face {
+    font-family: 'abhaya_libre';
+    src: url('../public/fonts/abhayalibre-extrabold-webfont.woff2') format('woff2'),
+   url('../public/fonts/abhayalibre-extrabold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
 }
 
 html,
 body {
+ 
   font-family: 'StratosSkyeng', sans-serif;
+  
   color: #ffffff;
   min-height: 100vh;
 	width: 100%;

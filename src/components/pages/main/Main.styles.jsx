@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+	
+
 export const Wrapper = styled.div`
 	padding-top: 24px;
 	padding-left: calc(50% - 577px);
@@ -55,6 +57,7 @@ export const BigText = styled.p`
 	letter-spacing: -1.1687777042388916px;
 	text-align: left;
 	width: 830px;
+	
 `;
 
 export const ChangeBodyBlock = styled.div``;
@@ -78,7 +81,7 @@ export const Exercise = styled.div`
 `;
 
 export const ExerciseName = styled.p`
-	font-family: 'Abhaya Libre', serif;
+	font-family: 'abhaya_libre', sans-serif;
 	font-size: 36px;
 	font-weight: 800;
 	line-height: 40px;
