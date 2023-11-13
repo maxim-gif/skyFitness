@@ -1,16 +1,17 @@
 import styled from 'styled-components';
 
-	
-
 export const Wrapper = styled.div`
 	padding-top: 24px;
 	padding-left: calc(50% - 577px);
 	padding-right: calc(50% - 577px);
 	min-height: 100vh;
 	width: 100%;
+	position: relative;
 `;
 
-export const Header = styled.div``;
+export const Header = styled.div`
+	
+`;
 
 export const LogoHeader = styled.div`
 	display: flex;
@@ -40,7 +41,7 @@ export const SmallText = styled.p`
 	line-height: 23px;
 	letter-spacing: -0.05000000074505806px;
 	text-align: left;
-	color: #ffffff;
+	color: rgba(255, 255, 255, 0.5);
 `;
 
 export const BigTextBlock = styled.div`
@@ -57,10 +58,11 @@ export const BigText = styled.p`
 	letter-spacing: -1.1687777042388916px;
 	text-align: left;
 	width: 830px;
-	
 `;
 
-export const ChangeBodyBlock = styled.div``;
+export const ChangeBodyBlock = styled.div`
+
+`;
 
 export const ChangeBodyImg = styled.img`
 	position: absolute;
@@ -77,11 +79,23 @@ export const Container = styled.div`
 export const Exercise = styled.div`
 	width: 360px;
 	height: 480px;
-	border-radius: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
 `;
 
-export const ExerciseName = styled.p`
-	font-family: 'abhaya_libre', sans-serif;
+
+
+export const ExerciseG = styled.g`
+	mix-blend-mode: multiply;
+`;
+
+export const ExerciseName = styled.span`
+	position: absolute;
+	top: 35px;
+	left: 30px;
+	font-family: 'Abhaya Libre', sans-serif;
 	font-size: 36px;
 	font-weight: 800;
 	line-height: 40px;

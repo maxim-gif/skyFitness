@@ -1,6 +1,17 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
+
+@font-face {
+  font-family: 'Stratos', sans-serif;
+  font-family: 'Abhaya Libre', sans-serif;
+  src: 
+    url("../public/fonts/StratosLCWeb-Regular.woff2") format("woff2"),
+    url("../public/fonts/StratosLCWeb-Regular.woff") format("woff"),
+    url("../public/fonts/StratosSkyeng.woff2") format('woff2'),
+    url("../public/fonts/StratosSkyeng.woff") format('woff'),
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -28,25 +39,9 @@ ul li {
   list-style: none;
 }
 
-@font-face {
-  font-family: 'StratosSkyeng', sans-serif;
-    url("../public/fonts/StratosSkyeng.woff2") format("woff2"),
-    url("../public/fonts/StratosSkyeng.woff") format("woff"),
-
-}
-
-@font-face {
-    font-family: 'abhaya_libre';
-    src: url('../public/fonts/abhayalibre-extrabold-webfont.woff2') format('woff2'),
-   url('../public/fonts/abhayalibre-extrabold-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
 html,
 body {
- 
+  
   font-family: 'StratosSkyeng', sans-serif;
   
   color: #ffffff;

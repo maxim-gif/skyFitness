@@ -1,6 +1,7 @@
-import React from "react";
+import React from 'react';
 import * as S from './Main.styles';
-import { mainArray } from "./MainArray";
+import { mainArray } from './MainArray';
+
 
 export const Main = () => {
 	return (
@@ -22,11 +23,14 @@ export const Main = () => {
 					</S.BigTextBlock>
 				</S.TextHeader>
 			</S.Header>
-			<S.Container>{mainArray.map(exercise => (
-				<S.Exercise>
-					<S.ExerciseName>{exercise.name}</S.ExerciseName>
-				</S.Exercise>
-			))}</S.Container>
+			<S.Container>
+				{mainArray.map(exercise => (
+					<S.Exercise key={exercise.id}>
+						{exercise.name}
+						{exercise.img}
+					</S.Exercise>
+				))}
+			</S.Container>
 		</S.Wrapper>
 	);
-}
+};
