@@ -1,14 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
-
-@font-face {
-  font-family: "StratosSkyeng", sans-serif;
-  src: local("StratosSkyeng"),
-    url("../fonts/StratosSkyeng.woff2") format("woff2"),
-    url("../fonts/StratosSkyeng.woff") format("woff");
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -21,22 +13,10 @@ export const GlobalStyle = createGlobalStyle`
   box-sizing: border-box;
 }
 
-
-
-html,
-body {
-  
-  color: #ffffff;
-  min-height: 100vh;
-	width: 100%;
-  background: #271A58;
-
-}
-
 a,
 a:visited {
   text-decoration: none;
-  font-family: "StratosSkyeng", sans-serif;
+  font-family: 'StratosSkyeng', sans-serif;
   cursor: pointer;
 }
 
@@ -48,5 +28,23 @@ ul li {
   list-style: none;
 }
 
+@font-face {
+  font-family: 'StratosSkyeng', sans-serif;
+  src: local("StratosSkyeng"), local("StratosSkyeng"),
+    url("../public/fonts/StratosSkyeng.woff2") format("woff2"),
+    url("../public/fonts/StratosSkyeng.woff") format("woff"),
+    url("../public/fonts/StratosSkyeng.ttf") format("truetype")
+  
+}
 
+html,
+body {
+  font-family: 'StratosSkyeng', sans-serif;
+  color: #ffffff;
+  min-height: 100vh;
+	width: 100%;
+  background: #271A58;
+  
+
+}
 `;
