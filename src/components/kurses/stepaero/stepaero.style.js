@@ -36,6 +36,7 @@ export const Li = styled.li`
   width: 244px;
   text-align: left;
   list-style-type: none;
+  
 `;
 export const Ul = styled.div`
   padding-left: 170px;
