@@ -10,9 +10,9 @@ export const AppRoutes = () => {
 			<Routes>
 				<Route path='/' element={<Main />} />
 
-				<Route element={<Yoga />} />
+				<Route path='/yoga' element={<Yoga />} />
 
-				<Route element={<Auth />} />
+				<Route path='auth' element={<Auth />} />
 			</Routes>
 		</BrowserRouter>
 	);

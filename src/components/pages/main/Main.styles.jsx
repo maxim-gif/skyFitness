@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
 export const Wrapper = styled.div`
 	padding-top: 24px;
@@ -76,7 +77,7 @@ export const Container = styled.div`
 	gap: 37px;
 `;
 
-export const Exercise = styled.div`
+export const Exercise = styled(NavLink)`
 	width: 360px;
 	height: 480px;
 	display: flex;
@@ -85,19 +86,17 @@ export const Exercise = styled.div`
 	position: relative;
 `;
 
-
-
 export const ExerciseG = styled.g`
 	mix-blend-mode: multiply;
 `;
 
 export const ExerciseName = styled.span`
+	font-family: 'Abhaya Libre', sans-serif;
 	position: absolute;
 	top: 35px;
 	left: 30px;
-	font-family: 'Abhaya Libre', sans-serif;
-	font-size: 36px;
 	font-weight: 800;
+	font-size: 36px;
 	line-height: 40px;
 	letter-spacing: -0.5px;
 	text-align: left;

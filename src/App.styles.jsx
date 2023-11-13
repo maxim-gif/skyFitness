@@ -3,13 +3,14 @@ import { createGlobalStyle } from 'styled-components';
 export const GlobalStyle = createGlobalStyle`
 
 @font-face {
-  font-family: 'Stratos', sans-serif;
   font-family: 'Abhaya Libre', sans-serif;
+  font-family: 'StratosSkyeng', sans-serif;
   src: 
-    url("../public/fonts/StratosLCWeb-Regular.woff2") format("woff2"),
-    url("../public/fonts/StratosLCWeb-Regular.woff") format("woff"),
-    url("../public/fonts/StratosSkyeng.woff2") format('woff2'),
-    url("../public/fonts/StratosSkyeng.woff") format('woff'),
+    url("../public/fonts/abhayalibre-extrabold-webfont.woff2") format("woff2"),
+    url("../public/fonts/abhayalibre-extrabold-webfont.woff") format("woff"),
+    url("../public/fonts/StratosSkyeng.woff2") format("woff2"),
+    url("../public/fonts/StratosSkyeng.woff") format("woff"),
+   
 }
 
 * {
@@ -27,7 +28,7 @@ export const GlobalStyle = createGlobalStyle`
 a,
 a:visited {
   text-decoration: none;
-  font-family: 'StratosSkyeng', sans-serif;
+  font-family: 'Stratos', sans-serif;
   cursor: pointer;
 }
 
@@ -41,7 +42,6 @@ ul li {
 
 html,
 body {
-  
   font-family: 'StratosSkyeng', sans-serif;
   
   color: #ffffff;

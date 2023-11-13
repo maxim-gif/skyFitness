@@ -2,7 +2,6 @@ import React from 'react';
 import * as S from './Main.styles';
 import { mainArray } from './MainArray';
 
-
 export const Main = () => {
 	return (
 		<S.Wrapper>
@@ -25,7 +24,7 @@ export const Main = () => {
 			</S.Header>
 			<S.Container>
 				{mainArray.map(exercise => (
-					<S.Exercise key={exercise.id}>
+					<S.Exercise to={exercise.path} key={exercise.id}>
 						{exercise.name}
 						{exercise.img}
 					</S.Exercise>

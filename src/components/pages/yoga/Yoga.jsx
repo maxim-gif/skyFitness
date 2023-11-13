@@ -3,6 +3,6 @@ import * as S from './Yoga.styles';
 
 export const Yoga = () => {
 	return (
-		<S.Wrapper></S.Wrapper>
+		<S.Wrapper>yoga</S.Wrapper>
 	)
 }

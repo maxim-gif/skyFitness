@@ -4,6 +4,7 @@ import * as S from './Main.styles';
 export const mainArray = [
 	{
 		id: 1,
+		path: '/yoga',
 		name: <S.ExerciseName>Йога</S.ExerciseName>,
 		img: (
 			<svg
@@ -125,6 +126,7 @@ export const mainArray = [
 	},
 	{
 		id: 2,
+		path: '/stratching',
 		name: <S.ExerciseName>Стретчинг</S.ExerciseName>,
 		img: (
 			<svg
@@ -250,6 +252,7 @@ export const mainArray = [
 	},
 	{
 		id: 3,
+		path: '/dancefitness',
 		name: <S.ExerciseName>Танцевальный фитнес</S.ExerciseName>,
 		img: (
 			<svg
@@ -364,6 +367,7 @@ export const mainArray = [
 	},
 	{
 		id: 4,
+		path: '/stepaerobics',
 		name: <S.ExerciseName>Степ-аэробика</S.ExerciseName>,
 		img: (
 			<svg
@@ -485,6 +489,7 @@ export const mainArray = [
 	},
 	{
 		id: 5,
+		path: '/bodyflex',
 		name: <S.ExerciseName>Бодифлекс</S.ExerciseName>,
 		img: (
 			<svg
