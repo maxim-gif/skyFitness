@@ -74,12 +74,12 @@ export const PageCourses = (props) => {
           </S.TextImg>
           <S.Foryou>Подойдет для вас, если:</S.Foryou>
           <S.Ul>
-            {/* {values.foryou.map((item, index) => (
+            {values.forYou && values.forYou.map((item, index) => (
               <S.Ulli key={index}>
                 <S.NnumberLi>{index+1}</S.NnumberLi>
                 <S.Li>{item}</S.Li>
               </S.Ulli>
-            ))} */}
+            ))}
           </S.Ul>
         <S.Foryou>Направления:</S.Foryou>
           <div>

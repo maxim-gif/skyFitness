@@ -96,6 +96,14 @@ export const NnumberLi = styled.div`
   align-items: center;
   width: 67px;
   height: 67px;
+  color: #000;
+  text-align: center;
+  font-variant-numeric: lining-nums proportional-nums;
+  font-family: StratosSkyeng;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px; /* 125% */
 `;
 
 export const Ulli = styled.div`
@@ -207,31 +215,31 @@ export const ButtonS = styled.button`
 `;
 
 export const BackModal = styled.div`
-    position: fixed;
-    left: 0px;
-    top: 0px;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    `;
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
 
 export const Modal = styled.div`
-position: fixed;
-top: 50%;
-left: 50%;
-width: 444px;
-height: 360px;
-border-radius: 12px;
-background: #fff;
-display: flex;
-align-items: center;
-justify-content: space-between;
-z-index: 1000;
-color: #000;
-flex-direction: column;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 444px;
+  height: 360px;
+  border-radius: 12px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+  color: #000;
+  flex-direction: column;
 `;
 
 export const CloseButton = styled.div`
@@ -239,11 +247,11 @@ export const CloseButton = styled.div`
   top: 10px;
   right: 10px;
   cursor: pointer;
-  z-index:10;
+  z-index: 10;
 `;
 
-export const SpanS= styled.span`
-font-size: 2rem;
-position: absolute;
-padding: 25px 45px 223px;
-`
+export const SpanS = styled.span`
+  font-size: 2rem;
+  position: absolute;
+  padding: 25px 45px 223px;
+`;
