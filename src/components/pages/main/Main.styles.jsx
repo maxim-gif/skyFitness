@@ -10,9 +10,7 @@ export const Wrapper = styled.div`
 	position: relative;
 `;
 
-export const Header = styled.div`
-	
-`;
+export const Header = styled.header``;
 
 export const LogoHeader = styled.div`
 	display: flex;
@@ -31,6 +29,12 @@ export const AuthButton = styled.button`
 	font-size: 16px;
 	font-weight: 400;
 	text-align: center;
+	&:hover {
+		background: rgba(45, 31, 121, 1);
+	}
+	&:focus {
+		background: rgba(59, 41, 161, 1);
+	}
 `;
 
 export const TextHeader = styled.div``;
@@ -40,7 +44,7 @@ export const SmallText = styled.p`
 	font-size: 20px;
 	font-weight: 400;
 	line-height: 23px;
-	letter-spacing: -0.05000000074505806px;
+	letter-spacing: -0.05px;
 	text-align: left;
 	color: rgba(255, 255, 255, 0.5);
 `;
@@ -56,14 +60,12 @@ export const BigText = styled.p`
 	font-size: 60px;
 	font-weight: 400;
 	line-height: 55px;
-	letter-spacing: -1.1687777042388916px;
+	letter-spacing: -1.16px;
 	text-align: left;
 	width: 830px;
 `;
 
-export const ChangeBodyBlock = styled.div`
-
-`;
+export const ChangeBodyBlock = styled.div``;
 
 export const ChangeBodyImg = styled.img`
 	position: absolute;
@@ -101,4 +103,31 @@ export const ExerciseName = styled.span`
 	letter-spacing: -0.5px;
 	text-align: left;
 	color: rgba(0, 0, 0, 1);
+`;
+
+export const Footer = styled.footer`
+	display: flex;
+	justify-content: center;
+	padding-top: 34px;
+	padding-bottom: 60px;
+`;
+export const UpButton = styled.button`
+	background: rgba(199, 233, 87, 1);
+	width: 147px;
+	height: 48px;
+	border-radius: 46px;
+	gap: 8px;
+	color: rgba(0, 0, 0, 1);
+	font-size: 24px;
+	font-weight: 400;
+	line-height: 32px;
+	letter-spacing: -0.1px;
+	text-align: center;
+	border: none;
+	&:hover {
+		background: rgba(218, 242, 137, 1);
+	}
+	&:focus {
+		background: rgba(235, 255, 171, 1);
+	}
 `;

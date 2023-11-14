@@ -1,8 +1,8 @@
-import React from "react";
-import * as S from './Auth.styles';
+import React from 'react';
+import * as S from './Reg.styles';
 import { NavLink } from 'react-router-dom';
 
-export const Auth = () => {
+export const Reg = () => {
 	return (
 		<S.Wrapper>
 			<S.LogoHeader>
@@ -17,12 +17,13 @@ export const Auth = () => {
 					<S.EmailInput type='email' placeholder='Логин' />
 
 					<S.PasswordInput type='password' placeholder='Пароль' />
-					<S.EnterButton>Войти</S.EnterButton>
-					<NavLink to='/reg'>
-						<S.RegisterButton>Зарегистрироваться</S.RegisterButton>
-					</NavLink>
+					<S.PasswordInputRepeat
+						type='password'
+						placeholder='Повторите пароль'
+					/>
+					<S.RegisterButton>Зарегистрироваться</S.RegisterButton>
 				</S.LogInForm>
 			</S.Container>
 		</S.Wrapper>
 	);
-}
+};
