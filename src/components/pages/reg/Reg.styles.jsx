@@ -7,9 +7,7 @@ export const Wrapper = styled.div`
 	padding-right: calc(50% - 577px);
 `;
 
-export const LogoHeader = styled.div`
-	
-`;
+export const LogoHeader = styled.div``;
 
 export const Container = styled.div`
 	display: flex;
@@ -76,23 +74,24 @@ export const PasswordInput = styled.input`
 	}
 `;
 
-export const EnterButton = styled.button`
-	width: 278px;
-	height: 52px;
-	border-radius: 46px;
-	background: rgba(88, 14, 162, 1);
-	color: rgba(255, 255, 255, 1);
-	border: none;
-	margin-top: 60px;
+export const PasswordInputRepeat = styled.input`
+	width: 278.5px;
+	margin-top: 38px;
 	font-size: 18px;
-	font-weight: 400;
 	line-height: 24px;
+	outline: none;
+	border-top: none;
+	border-right: none;
+	border-left: none;
+	border-image: initial;
+	border-bottom: 1px solid rgb(208, 206, 206);
 	letter-spacing: -0.05px;
-	&:hover {
-		background: rgba(63, 0, 125, 1);
-	}
-	&:focus {
-		background: rgba(39, 26, 88, 1);
+	&::placeholder {
+		font-size: 18px;
+		font-weight: 400;
+		line-height: 24px;
+		letter-spacing: -0.05px;
+		color: rgba(208, 206, 206, 1);
 	}
 `;
 
@@ -101,19 +100,18 @@ export const RegisterButton = styled.button`
 	height: 52px;
 	border-radius: 46px;
 	border: 1px solid rgba(208, 206, 206, 1);
-	color: rgba(0, 0, 0, 1);
+	color: rgba(255, 255, 255, 1);
 	font-size: 18px;
 	font-weight: 400;
 	line-height: 24px;
 	letter-spacing: -0.05px;
-	margin-top: 20px;
-	background-color: rgb(255, 255, 255);
+	margin-top: 60px;
+	background: rgba(88, 14, 162, 1);
+
 	&:hover {
-		background: linear-gradient(0deg, #f4f5f6, #f4f5f6),
-			linear-gradient(0deg, #d0cece, #d0cece);
+		background: rgba(63, 0, 125, 1);
 	}
 	&:focus {
-		background: linear-gradient(0deg, #d0cece, #d0cece),
-			linear-gradient(0deg, #d9d9d9, #d9d9d9);
+		background: rgba(39, 26, 88, 1);
 	}
 `;
