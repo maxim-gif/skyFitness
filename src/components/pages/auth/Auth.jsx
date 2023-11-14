@@ -4,9 +4,11 @@ import { NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux'
 import { signIn } from '../../store/actions/creators'
 import { enter } from '../../api/api'
+import { useNavigate } from 'react-router-dom'
 
 export const Auth = () => {
 
+	const navigate = useNavigate()
 	const dispatch = useDispatch()
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
@@ -17,6 +19,7 @@ export const Auth = () => {
 		try {
 		  const userData = await enter(email, password);
 		  dispatch(signIn(userData));
+		  navigate('/путь на профиль')
 		} catch(error) {
 			if (error.message === "Firebase: Access to this account has been temporarily disabled due to many failed login attempts. You can immediately restore it by resetting your password or you can try again later. (auth/too-many-requests).") {
 				setError("Акаунт временно заблокирован. Превышено количество неудачных попыток входа")

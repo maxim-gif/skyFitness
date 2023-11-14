@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import * as S from './Reg.styles';
+import { useNavigate } from 'react-router-dom'
 import { NavLink } from 'react-router-dom';
 import { regUser } from '../../api/api'
 import { useDispatch } from 'react-redux'
@@ -7,6 +8,7 @@ import { registration } from '../../store/actions/creators'
 
 export const Reg = () => {
 
+	const navigate = useNavigate()
 	const dispatch = useDispatch()
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
@@ -25,6 +27,7 @@ export const Reg = () => {
 		try {
 		  const userData = await regUser(email, password);
 		  dispatch(registration(userData));
+		  navigate('/auth')
 		} catch(error) {
 			if (error.message === "Firebase: Error (auth/invalid-email).") {
 				setError("Неверный email")
