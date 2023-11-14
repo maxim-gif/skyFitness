@@ -15,7 +15,7 @@ import { getData } from "../../api/api";
 
 export const PageCourses = (props) => {
 
-  const logo = `${process.env.PUBLIC_URL}/logowhite.png`;
+  const logo = `${process.env.PUBLIC_URL}/logo2.png`;
 
   let { id } = useParams();
 
