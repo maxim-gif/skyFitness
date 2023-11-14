@@ -1,7 +1,6 @@
 import React from 'react';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import { Main } from './components/pages/main/Main';
-import { Yoga } from './components/pages/yoga/Yoga';
 import { Auth } from './components/pages/auth/Auth';
 import { PageCourses } from './components/pages/kurses/kourses';
 
