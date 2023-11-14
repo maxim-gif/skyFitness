@@ -3,7 +3,7 @@ import * as S from './Main.styles';
 
 export const mainArray = [
 	{
-		id: 1,
+		id: 4,
 		path: '/yoga',
 		name: <S.ExerciseName>Йога</S.ExerciseName>,
 		img: (
@@ -125,7 +125,7 @@ export const mainArray = [
 		),
 	},
 	{
-		id: 2,
+		id: 3,
 		path: '/stratching',
 		name: <S.ExerciseName>Стретчинг</S.ExerciseName>,
 		img: (
@@ -251,7 +251,7 @@ export const mainArray = [
 		),
 	},
 	{
-		id: 3,
+		id: 1,
 		path: '/dancefitness',
 		name: <S.ExerciseName>Танцевальный фитнес</S.ExerciseName>,
 		img: (
@@ -366,7 +366,7 @@ export const mainArray = [
 		),
 	},
 	{
-		id: 4,
+		id: 2,
 		path: '/stepaerobics',
 		name: <S.ExerciseName>Степ-аэробика</S.ExerciseName>,
 		img: (
@@ -488,7 +488,7 @@ export const mainArray = [
 		),
 	},
 	{
-		id: 5,
+		id: 0,
 		path: '/bodyflex',
 		name: <S.ExerciseName>Бодифлекс</S.ExerciseName>,
 		img: (

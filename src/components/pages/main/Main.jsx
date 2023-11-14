@@ -34,7 +34,7 @@ export const Main = () => {
 			</S.Header>
 			<S.Container>
 				{mainArray.map(exercise => (
-					<S.Exercise to={exercise.path} key={exercise.id}>
+					<S.Exercise to={`/course/${exercise.id}`} key={exercise.id}>
 						{exercise.name}
 						{exercise.img}
 					</S.Exercise>
