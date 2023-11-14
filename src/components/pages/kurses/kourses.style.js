@@ -1,57 +1,55 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-	padding-top: 24px;
-	padding-left: calc(50% - 577px);
-	padding-right: calc(50% - 577px);
-	min-height: 100vh;
-	width: 100%;
-	position: relative;
-    background: #FAFAFA;
+  padding-top: 24px;
+  padding-left: calc(50% - 577px);
+  padding-right: calc(50% - 577px);
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  background: #fafafa;
 `;
 
 export const StyledParagraph = styled.p`
-
-color: black;
+  color: black;
 `;
 
 export const MainCenterblock = styled.div`
-display: flex;
-padding-top: 30px;
-align-items: center;
-justify-content: space-between;
-cursor: pointer;
-padding-left: 140px;
+  display: flex;
+  padding-top: 30px;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  padding-left: 140px;
 `;
 export const TextImg = styled.div`
   padding-top: 75px;
   padding-left: 140px;
 `;
 export const Button = styled.button`
-display: inline-flex;
-padding: 5px 16px 7px 16px;
-justify-content: center;
-align-items: center;
-gap: 8px;
-border-radius: 46px;
-background: #140D40;
-color: #FFF;
-text-align: center;
-font-variant-numeric: lining-nums proportional-nums;
-font-family: StratosSkyeng;
-font-size: 16px;
-font-style: normal;
-font-weight: 400;
-line-height: 24px;
-&:hover {
-    background: #2D1F79;
+  display: inline-flex;
+  padding: 5px 16px 7px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 46px;
+  background: #140d40;
+  color: #fff;
+  text-align: center;
+  font-variant-numeric: lining-nums proportional-nums;
+  font-family: StratosSkyeng;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  &:hover {
+    background: #2d1f79;
   }
 
   &:active {
-    background: #3B29A1;
+    background: #3b29a1;
   }
 `;
-
 
 export const Text = styled.p`
 z-index: 1;
@@ -80,7 +78,6 @@ export const Li = styled.li`
   text-align: left;
   list-style-type: none;
 `;
-
 
 export const Ul = styled.div`
   padding-left: 140px;
@@ -128,7 +125,7 @@ export const Directions = styled.div`
 `;
 
 export const DirectionsOl = styled.div`
-column-count: 2;
+  column-count: 2;
   padding-left: 170px;
   padding-top: 22px;
 `;
@@ -184,11 +181,11 @@ export const Foot = styled.div`
 
 export const ButtonS = styled.button`
   border-radius: 46px;
-  background: var(--palette-purple-90, #580EA2);
+  background: var(--palette-purple-90, #580ea2);
   width: 275px;
   height: 52px;
   flex-shrink: 0;
-  color: #FFF;
+  color: #fff;
   font-variant-numeric: lining-nums proportional-nums;
   font-family: StratosSkyeng;
   font-size: 18px;
@@ -201,26 +198,40 @@ export const ButtonS = styled.button`
   bottom: 1rem;
 
   &:hover {
-    background: #2D1F79;
+    background: #2d1f79;
   }
 
   &:active {
-    background: #3B29A1;
+    background: #3b29a1;
   }
 `;
+
+export const BackModal = styled.div`
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    `;
+
 export const Modal = styled.div`
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  width: 444px;
-  height: 360px;
-  border-radius: 12px;
-  background: #FFF;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-  color: #000;
+position: fixed;
+top: 50%;
+left: 50%;
+width: 444px;
+height: 360px;
+border-radius: 12px;
+background: #fff;
+display: flex;
+align-items: center;
+justify-content: space-between;
+z-index: 1000;
+color: #000;
+flex-direction: column;
 `;
 
 export const CloseButton = styled.div`
@@ -228,4 +239,11 @@ export const CloseButton = styled.div`
   top: 10px;
   right: 10px;
   cursor: pointer;
+  z-index:10;
 `;
+
+export const SpanS= styled.span`
+font-size: 2rem;
+position: absolute;
+padding: 25px 45px 223px;
+`
