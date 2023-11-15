@@ -31,15 +31,13 @@ export const PageCourses = (props) => {
 
   useEffect(() => {
 
-    if (!values || !values._id) {
-      navigate('/NotfoundPage');
-    }
 
     getData()
       .then((data) => {
         const vals = Object.values(data);
         const found = vals.find((item) => item._id === id);
         setValues(found);
+
       })
       
       .catch((error) => console.error(error));
@@ -47,6 +45,10 @@ export const PageCourses = (props) => {
   }, [id]);  
   
 
+  if (!values) {
+    navigate('/NotfoundPage');
+    return null; // Add a return statement just in case.
+  }
 
   let svgMain;
 
