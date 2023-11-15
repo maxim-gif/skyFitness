@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import * as S from "./ex.style";
 import { useSelector } from "react-redux";
+import { signOut } from "@firebase/auth";
 
 export const Profile = () => {
   const user = useSelector((state) => state.playerControl.dataUser);
@@ -12,7 +13,9 @@ export const Profile = () => {
     yoga: 'Йога',
   };
 
-
+  const exit = () => {
+    signOut()
+  }
   console.log(user.email);
   console.log(user.courses);
 
