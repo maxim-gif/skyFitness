@@ -11,6 +11,14 @@ export const LogoHeader = styled.div`
 	
 `;
 
+export const Error = styled.div`
+	width: 280px;
+    color: coral;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+	text-align: center;
+`
 export const Container = styled.div`
 	display: flex;
 	justify-content: center;
