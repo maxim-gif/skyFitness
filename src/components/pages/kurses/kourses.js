@@ -30,19 +30,23 @@ export const PageCourses = (props) => {
   const openModal = () => setModalIsOpen(true);
 
   useEffect(() => {
+
+    if (!values || !values._id) {
+      navigate('/NotfoundPage');
+    }
+
     getData()
       .then((data) => {
         const vals = Object.values(data);
         const found = vals.find((item) => item._id === id);
         setValues(found);
       })
+      
       .catch((error) => console.error(error));
+
   }, [id]);  
   
-  if (!values) {
-    navigate('/NotfoundPage');
 
-  }
 
   let svgMain;
 
