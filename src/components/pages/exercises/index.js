@@ -4,6 +4,14 @@ import { useSelector } from "react-redux";
 
 export const Profile = () => {
   const user = useSelector((state) => state.playerControl.dataUser);
+  const courseNameMapping = {
+    bodyflex: 'Бодифлекс',
+    dancefitness: 'Фитнес-танцы',
+    stepaerobics: 'Степ-аэробика',
+    stretching: 'Стретчинг',
+    yoga: 'Йога',
+  };
+
 
   console.log(user.email);
   console.log(user.courses);
@@ -22,9 +30,10 @@ export const Profile = () => {
         </NavLink>
       </S.LogoHeader>
       <p> ваши курсы: </p>
-{Object.keys(user.courses).map((courseKey) => (
-    <p key={courseKey}>{courseKey}</p>
-))}
+      {Object.keys(user.courses).map((courseKey) => {
+    const courseName = courseNameMapping[courseKey] || courseKey;
+    return <p key={courseKey}>{courseName}</p>
+})}
     </S.Wrapper>
   );
 };
