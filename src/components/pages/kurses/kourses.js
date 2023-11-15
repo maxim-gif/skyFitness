@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import * as S from "./kourses.style";
 import React, { useEffect, useState } from "react";
 
@@ -14,6 +14,8 @@ import { getData } from "../../api/api";
 
 
 export const PageCourses = (props) => {
+
+  const navigate = useNavigate();
 
   const logo = `${process.env.PUBLIC_URL}/logo2.png`;
 
@@ -37,6 +39,10 @@ export const PageCourses = (props) => {
       .catch((error) => console.error(error));
   }, [id]);  
   
+  if (!values) {
+    navigate('/NotfoundPage');
+
+  }
 
   let svgMain;
 
