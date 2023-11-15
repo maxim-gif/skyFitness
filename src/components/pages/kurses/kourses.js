@@ -47,7 +47,7 @@ export const PageCourses = (props) => {
 
   if (!values) {
     navigate('/NotfoundPage');
-    return null; // Add a return statement just in case.
+    return null;
   }
 
   let svgMain;
