@@ -16,10 +16,6 @@ export const Profile = () => {
   console.log(user.email);
   console.log(user.courses);
 
-  if (!user) {
-    // Выводим сообщение или компонент загрузки, пока данные забираются.
-    return <div>Loading...</div>;
-  }
 
   return (
     <S.Wrapper>
@@ -28,8 +24,11 @@ export const Profile = () => {
         <NavLink to="/">
           <S.Logo src="/logo.png"></S.Logo>
         </NavLink>
+        <NavLink to='/auth'>
+          <S.Button>{user.email ? 'Выйти' : 'Войти'}</S.Button>
+        </NavLink>
       </S.LogoHeader>
-      <p> ваши курсы: </p>
+      <p> Ваши курсы: </p>
       {Object.keys(user.courses).map((courseKey) => {
     const courseName = courseNameMapping[courseKey] || courseKey;
     return <p key={courseKey}>{courseName}</p>
