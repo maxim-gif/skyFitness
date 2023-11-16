@@ -22,15 +22,20 @@ export const Profile = () => {
 
   return (
     <S.Wrapper>
-      <p>Привет {user.email}</p>
+      <p>Привет </p>
       <S.LogoHeader>
         <NavLink to="/">
-          <S.Logo src="/logo.png"></S.Logo>
+          <S.Logo src="/logo2.png"></S.Logo>
         </NavLink>
         <NavLink to='/auth'>
           <S.Button>{user.email ? 'Выйти' : 'Войти'}</S.Button>
         </NavLink>
       </S.LogoHeader>
+      <S.MyProf>Мой профиль</S.MyProf>
+      <S.NamePass>
+        <S.SpanName>Мой логин: {user.email}</S.SpanName>
+        <S.SpanName>Пароль: {user.password}</S.SpanName>
+      </S.NamePass>
       <p> Ваши курсы: </p>
       {Object.keys(user.courses).map((courseKey) => {
     const courseName = courseNameMapping[courseKey] || courseKey;
