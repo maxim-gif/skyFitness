@@ -32,7 +32,6 @@ export const Button = styled.button`
   color: #fff;
   text-align: center;
   font-variant-numeric: lining-nums proportional-nums;
-  font-family: StratosSkyeng;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -49,7 +48,6 @@ export const Button = styled.button`
 export const MyProf = styled.h1`
   color: #000;
   font-variant-numeric: lining-nums proportional-nums;
-  font-family: StratosSkyeng;
   font-size: 48px;
   font-style: normal;
   font-weight: 400;
@@ -60,7 +58,6 @@ export const MyProf = styled.h1`
 export const SpanName = styled.span`
   color: #000;
   font-variant-numeric: lining-nums proportional-nums;
-  font-family: StratosSkyeng;
   font-size: 24px;
   font-style: normal;
   font-weight: 400;
@@ -85,7 +82,6 @@ export const ButtonS = styled.button`
   flex-shrink: 0;
   color: #fff;
   font-variant-numeric: lining-nums proportional-nums;
-  font-family: StratosSkyeng;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
@@ -103,31 +99,66 @@ export const ButtonS = styled.button`
 `;
 
 export const MyCoursesW = styled.h1`
-color: #000;
-font-variant-numeric: lining-nums proportional-nums;
-font-family: StratosSkyeng;
-font-size: 48px;
-font-style: normal;
-font-weight: 400;
-line-height: 56px; /* 116.667% */
-padding-top: 91px;
+  color: #000;
+  font-variant-numeric: lining-nums proportional-nums;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 56px; /* 116.667% */
+  padding-top: 91px;
 `;
 
-export const NameCourse = styled.p`
-color: #000;
-
-font-variant-numeric: lining-nums proportional-nums;
-font-family: Abhaya Libre ExtraBold;
-font-size: 36px;
-font-style: normal;
-font-weight: 800;
-line-height: 110%; /* 39.6px */
-letter-spacing: -0.5px;
+export const NameCourse = styled.span`
+  width: 290px;
+  height: 120px;
+  position: absolute;
+  color: #000;
+  font-variant-numeric: lining-nums proportional-nums;
+  font-family: Abhaya Libre ExtraBold;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 110%;
+  letter-spacing: -0.5px;
+  padding-top: 30px;
+  padding-left: 30px;
 `;
 
 export const MyCourses = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    gap: 40px;
-    padding-top: 60px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding-top: 60px;
+  width: 1200px;
+  padding-bottom: 60px;
 `;
+
+export const CouresNameAndSVG = styled.div`
+  border-radius: 29.998px;
+  background: #fff;
+  box-shadow: -10px 10px 15.99882px 0px rgba(0, 0, 0, 0.1),
+    10px -10px 16px 0px rgba(0, 0, 0, 0.1);
+`;
+
+export const ButtonGo = styled.button`
+bottom: 40px;
+left: 20px;
+background: rgba(199, 233, 87, 1);
+width: 147px;
+height: 48px;
+border-radius: 46px;
+color: rgba(0, 0, 0, 1);
+font-size: 24px;
+font-weight: 400;
+line-height: 32px;
+letter-spacing: -0.1px;
+text-align: center;
+border: none;
+position: relative;
+
+	&:hover {
+		background: #DAF289;
+	}
+	&:active {
+		background: #EBFFAB;
+	}`;

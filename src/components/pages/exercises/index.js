@@ -2,10 +2,14 @@ import { NavLink } from "react-router-dom";
 import * as S from "./ex.style";
 import { useSelector } from "react-redux";
 import { signOut } from "@firebase/auth";
+import { getData } from "../../api/api";
+import { useEffect, useState } from "react";
 
 
 export const Profile = () => {
   const user = useSelector((state) => state.playerControl.dataUser);
+  const [values, setValues] = useState([]);
+
   const courseNameMapping = {
     bodyflex: './bodyflex.svg',
     dancefitness: './dancefitness.svg',
@@ -16,18 +20,28 @@ export const Profile = () => {
 
   const courseTitleMapping = {
     bodyflex: 'Бодифлекс',
-    dancefitness: 'Танцевальная фитнес',
+    dancefitness: 'Танцевальный фитнес',
     stepaerobics: 'Степ-аэробика',
     stretching: 'Стретчинг',
     yoga: 'Йога',
   };
 
 
+  useEffect(() => {
+  getData()
+  .then((data) => {
+    const vals = Object.values(data);
+
+    setValues(vals);
+  })
+  .catch((error) => console.error(error));
+  }, [])
+
+  console.log(values);
+
   const exit = () => {
     signOut()
   }
-  console.log(user.email);
-  console.log(user.courses);
 
 
   return (
@@ -54,10 +68,13 @@ export const Profile = () => {
   const courseTitle = courseTitleMapping[courseKey];
   return (
 
-    <div key={courseKey}>
+    <S.CouresNameAndSVG key={courseKey}>
         <S.NameCourse>{courseTitle}</S.NameCourse>
+        <div>
         <img src={courseSvg} alt={courseTitle}/>
-    </div>
+        </div>
+        <S.ButtonGo>Перейти</S.ButtonGo>
+    </S.CouresNameAndSVG>
 
   )
 })}
