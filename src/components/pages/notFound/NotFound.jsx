@@ -1,8 +1,8 @@
 import React from 'react'
-import * as S from './notfound.style'
+import * as S from './NotFound.styles'
 import { Link } from 'react-router-dom'
 
-export const NotfoundPage = (props) => {
+export const NotFoundPage = () => {
     const smile = `${process.env.PUBLIC_URL}/crying.png`
     const logo = `${process.env.PUBLIC_URL}/logo.png`;
 
