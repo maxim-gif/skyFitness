@@ -1,4 +1,4 @@
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { Link, useParams, useNavigate, NavLink } from "react-router-dom";
 import * as S from "./kourses.style";
 import React, { useEffect, useState } from "react";
 
@@ -77,8 +77,10 @@ export const PageCourses = (props) => {
             <Link to="/">
               <img src={logo} alt="Logo" />
             </Link>
-            <S.Button>Войти</S.Button>
-          </S.MainCenterblock>
+            <NavLink to='/auth'>
+              <S.Button>Войти</S.Button>
+            </NavLink>
+         </S.MainCenterblock>
           </div>
           <S.TextImg>
             <S.Text>{values.name}</S.Text>
