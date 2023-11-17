@@ -1,7 +1,7 @@
 import React from 'react';
 import * as S from './Main.styles';
 
-export const mainArray = [
+export const MainArray = [
 	{
 		id: 4,
 		path: '/yoga',

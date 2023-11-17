@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import * as S from './Main.styles';
-import { mainArray } from './MainArray';
+import { MainArray } from './MainArray';
 import { NavLink } from 'react-router-dom';
+import { MenuProfile } from '../../menuProf/MenuProfile';
 
 export const Main = () => {
 	function goTop() {
@@ -11,14 +12,57 @@ export const Main = () => {
 		}
 	}
 
+	const [color, setColor] = useState();
+
+	const [isOpen, setIsOpen] = useState(false);
+
+	const toggleOpen = () => setIsOpen(!isOpen);
+
+	const name = localStorage.getItem('name');
+
+	useEffect(() => {
+		setColor(true);
+	}, []);
+
+	function mouseOut() {
+		if(isOpen) {
+			toggleOpen();
+		}
+	}
+
 	return (
 		<S.Wrapper>
 			<S.Header>
 				<S.LogoHeader>
-					<S.Logo src='/logo.png'></S.Logo>
-					<NavLink to='/auth'>
-						<S.AuthButton>Войти</S.AuthButton>
-					</NavLink>
+					<S.Logo src='/logo.png' />
+					{name ? (
+						<S.MenuStyle onMouseLeave={mouseOut} onClick={toggleOpen}>
+							<svg
+								xmlns='http://www.w3.org/2000/svg'
+								width='50'
+								height='50'
+								viewBox='0 0 50 50'
+								fill='none'
+							>
+								<circle
+									cx='25'
+									cy='25'
+									r='25'
+									fill={color ? 'rgb(105, 105, 105)' : '#D9D9D9'}
+								/>
+							</svg>
+							<S.SpanName $color={color}>{name}</S.SpanName>
+							<MenuProfile
+								
+								color={color}
+								isOpen={isOpen}
+							/>
+						</S.MenuStyle>
+					) : (
+						<NavLink to='/auth'>
+							<S.AuthButton>Войти</S.AuthButton>
+						</NavLink>
+					)}
 				</S.LogoHeader>
 				<S.TextHeader>
 					<S.SmallText>Онлайн-тренировки для занятий дома</S.SmallText>
@@ -33,7 +77,7 @@ export const Main = () => {
 				</S.TextHeader>
 			</S.Header>
 			<S.Container>
-				{mainArray.map(exercise => (
+				{MainArray.map(exercise => (
 					<S.Exercise to={`/course/${exercise.id}`} key={exercise.id}>
 						{exercise.name}
 						{exercise.img}
