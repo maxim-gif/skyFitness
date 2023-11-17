@@ -215,4 +215,3 @@ export const BackModal = styled.div`
   justify-content: center;
   z-index: 10;
 `;
-
