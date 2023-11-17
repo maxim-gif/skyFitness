@@ -142,35 +142,36 @@ export const CouresNameAndSVG = styled.div`
 `;
 
 export const ButtonGo = styled.button`
-bottom: 40px;
-left: 20px;
-background: rgba(199, 233, 87, 1);
-width: 147px;
-height: 48px;
-border-radius: 46px;
-color: rgba(0, 0, 0, 1);
-font-size: 24px;
-font-weight: 400;
-line-height: 32px;
-letter-spacing: -0.1px;
-text-align: center;
-border: none;
-position: relative;
+  bottom: 40px;
+  left: 20px;
+  background: rgba(199, 233, 87, 1);
+  width: 147px;
+  height: 48px;
+  border-radius: 46px;
+  color: rgba(0, 0, 0, 1);
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 32px;
+  letter-spacing: -0.1px;
+  text-align: center;
+  border: none;
+  position: relative;
 
-	&:hover {
-		background: #DAF289;
-	}
-	&:active {
-		background: #EBFFAB;
-	}`;
+  &:hover {
+    background: #daf289;
+  }
+  &:active {
+    background: #ebffab;
+  }
+`;
 
-  export const MenuStyle = styled.div`
+export const MenuStyle = styled.div`
   display: flex;
   gap: 15px;
   align-items: center;
   flex-wrap: wrap;
-  `;
-  export const ListOfLessons = styled.div`
+`;
+export const ListOfLessons = styled.div`
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -188,7 +189,6 @@ export const Element = styled.div`
   border: 1px solid var(--mint-90, #06b16e);
   width: 278px;
   height: 76px;
-  /* flex-shrink: 0; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -198,5 +198,21 @@ export const CloseButton = styled.div`
   cursor: pointer;
   z-index: 10;
   flex-direction: row;
-  justify-content: flex-end;
+  align-items: flex-start;
+  position: relative;
+  left: 200px;
+  top: 5px;
 `;
+export const BackModal = styled.div`
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+`;
+

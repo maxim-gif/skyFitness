@@ -172,33 +172,4 @@ export const MenuStyle = styled.div`
   flex-wrap: wrap;
 `;
 
-export const ListOfLessons = styled.div`
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  align-content: center;
-  width: 444px;
-  height: 626px;
-  gap: 12px;
-  border-radius: 12px;
-  background: #fff;
-  align-items: center;
-`;
 
-export const Element = styled.div`
-  border-radius: 26px;
-  border: 1px solid var(--mint-90, #06b16e);
-  width: 278px;
-  height: 76px;
-  /* flex-shrink: 0; */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-export const CloseButton = styled.div`
-  display: flex;
-  cursor: pointer;
-  z-index: 10;
-  flex-direction: row;
-  justify-content: flex-end;
-`;

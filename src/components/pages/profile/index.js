@@ -11,11 +11,11 @@ export const Profile = () => {
   const user = useSelector((state) => state.playerControl.dataUser);
   const [values, setValues] = useState([]);
 
-  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [activeModal, setActiveModal] = useState(null);
 
-  const closeModal = () => setModalIsOpen(false);
+  const closeModal = () => setActiveModal(null);
   
-  const openModal = () => setModalIsOpen(true);
+  const openModal = (courseKey) => setActiveModal(courseKey);
 
   const courseNameMapping = {
     bodyflex: './bodyflex.svg',
@@ -33,13 +33,6 @@ export const Profile = () => {
     yoga: 'Йога',
   };
 
-  const idToCourse = {
-    0: 'bodyflex',
-    1: 'dancefitness',
-    2: 'stepaerobics',
-    3: 'stretching',
-    4: 'yoga'
-  };
 
   useEffect(() => {
     getData()
@@ -96,8 +89,9 @@ export const Profile = () => {
         <div>
         <img src={courseSvg} alt={courseTitle}/>
         </div>
-        <S.ButtonGo onClick={openModal} key={courseKey}>Перейти</S.ButtonGo>
-        {modalIsOpen && (
+        <S.ButtonGo onClick={() => openModal(courseKey)}>Перейти</S.ButtonGo>
+        {activeModal === courseKey && (
+          <S.BackModal>
           <S.ListOfLessons>
             <S.CloseButton onClick={closeModal}>
                   <svg
@@ -193,6 +187,7 @@ export const Profile = () => {
               </S.Element>
             ))}
           </S.ListOfLessons>
+          </S.BackModal>
         )}
       </S.CouresNameAndSVG>
     )

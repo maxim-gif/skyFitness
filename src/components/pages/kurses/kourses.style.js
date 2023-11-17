@@ -227,19 +227,17 @@ export const BackModal = styled.div`
 `;
 
 export const Modal = styled.div`
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  width: 444px;
-  height: 360px;
-  border-radius: 12px;
-  background: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  z-index: 1000;
-  color: #000;
-  flex-direction: column;
+position: sticky;
+width: 444px;
+height: 360px;
+border-radius: 12px;
+background: #fff;
+display: flex;
+align-items: center;
+justify-content: space-between;
+z-index: 1000;
+color: #000;
+flex-direction: column;
 `;
 
 export const CloseButton = styled.div`
