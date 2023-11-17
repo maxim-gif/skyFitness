@@ -1,39 +1,46 @@
 import { NavLink } from "react-router-dom";
-import * as S from "./ex.style";
+import * as S from "./Profile.styles";
 import { useSelector } from "react-redux";
-import { signOut } from "@firebase/auth";
 import { getData } from "../../api/api";
 import { useEffect, useState } from "react";
-import { MenuProfile } from "../../menuProf";
 import { ListLessons } from "../../listLesons";
+import { MenuProfile } from "../../menuProf/MenuProfile";
 
 
 export const Profile = () => {
+  const name = localStorage.getItem('name');
   const user = useSelector((state) => state.playerControl.dataUser);
   const [values, setValues] = useState([]);
+  const [isOpen, setIsOpen] = useState(false);
+  const toggleOpen = () => setIsOpen(!isOpen);
 
-  const [activeModal, setActiveModal] = useState(null);
+  // const [activeModal, setActiveModal] = useState(null);
 
-  const closeModal = () => setActiveModal(null);
+  // const closeModal = () => setActiveModal(null);
   
-  const openModal = (courseKey) => setActiveModal(courseKey);
+  // const openModal = (courseKey) => setActiveModal(courseKey);
 
-  const courseNameMapping = {
-    bodyflex: './bodyflex.svg',
-    dancefitness: './dancefitness.svg',
-    stepaerobics: './stepaerobics.svg',
-    stretching: './stretching.svg',
-    yoga: './yoga.svg',
-  };
+  // const courseNameMapping = {
+  //   bodyflex: './bodyflex.svg',
+  //   dancefitness: './dancefitness.svg',
+  //   stepaerobics: './stepaerobics.svg',
+  //   stretching: './stretching.svg',
+  //   yoga: './yoga.svg',
+  // };
 
-  const courseTitleMapping = {
-    bodyflex: 'Бодифлекс',
-    dancefitness: 'Танцевальный фитнес',
-    stepaerobics: 'Степ-аэробика',
-    stretching: 'Стретчинг',
-    yoga: 'Йога',
-  };
+  // const courseTitleMapping = {
+  //   bodyflex: 'Бодифлекс',
+  //   dancefitness: 'Танцевальный фитнес',
+  //   stepaerobics: 'Степ-аэробика',
+  //   stretching: 'Стретчинг',
+  //   yoga: 'Йога',
+  // };
 
+  function mouseOut() {
+		if (isOpen) {
+			toggleOpen();
+		}
+	}
 
   useEffect(() => {
     getData()
@@ -47,13 +54,6 @@ export const Profile = () => {
       .catch((error) => console.error(error));
   }, []);
 
-  console.log(values);
-
-  console.log(user.courses);
-
-  const exit = () => {
-    signOut()
-  }
 
 
   return (
@@ -62,12 +62,12 @@ export const Profile = () => {
         <NavLink to="/">
           <S.Logo src="/logo2.png"></S.Logo>
         </NavLink>
-        <S.MenuStyle>
+        <S.MenuStyle onMouseLeave={mouseOut} onClick={toggleOpen}>
         <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" fill="none">
 <circle cx="25" cy="25" r="25" fill="#D9D9D9"/>
 </svg>
-        <S.SpanName>{user.email ? user.email : 'Войти'}</S.SpanName>
-        <MenuProfile/>
+        <S.SpanName>{name}</S.SpanName>
+        <MenuProfile isOpen={isOpen} />
         </S.MenuStyle>
       </S.LogoHeader>
       <S.MyProf>Мой профиль</S.MyProf>

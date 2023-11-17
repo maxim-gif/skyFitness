@@ -4,7 +4,8 @@ import { useSelector } from "react-redux";
 import { signOut } from "@firebase/auth";
 import { getData } from "../../api/api";
 import { useEffect, useState } from "react";
-import { MenuProfile } from "../../menuProf";
+import { MenuProfile } from "../../menuProf/MenuProfile";
+
 
 export const WorkOut = () => {
   const user = useSelector((state) => state.playerControl.dataUser);

@@ -4,9 +4,9 @@ import React, { useEffect, useState } from "react";
 
 import foot from "../../../img/coursesImage/foot.svg";
 import svgAero from "../../../img/coursesImage/svgAero.svg";
-import svgStrech from "../../../img/coursesImage/svgStrach.svg";
+import svgStrech from "../../../img/coursesImage/svgStretch.svg";
 import svgYoga from "../../../img/coursesImage/svgYoga.svg";
-import svgBodyfleks from "../../../img/coursesImage/svgBodyfleks.svg";
+import svgBodyfleks from "../../../img/coursesImage/svgBodyflex.svg";
 import svgDance from "../../../img/coursesImage/svgDance.svg";
 import hand from "../../../img/coursesImage/hand.svg";
 import { getData } from "../../api/api";

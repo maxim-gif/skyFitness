@@ -5,27 +5,31 @@ import { signOut } from "@firebase/auth";
 import { getData } from "../../api/api";
 import { useEffect, useState } from "react";
 import { MenuProfile } from "../../menuProf/MenuProfile";
+import { ListLessons } from "../../listLesons";
 
 
 export const ProfilePage = () => {
-  const user = useSelector((state) => state.playerControl.dataUser);
-  const [values, setValues] = useState([]);
+	const name = localStorage.getItem('name');
+	// const user = useSelector((state) => state.playerControl.dataUser);
+	const [values, setValues] = useState([]);
+	const [isOpen, setIsOpen] = useState(false);
+	const toggleOpen = () => setIsOpen(!isOpen);
 
-  const courseNameMapping = {
-    bodyflex: './bodyflex.svg',
-    dancefitness: './dancefitness.svg',
-    stepaerobics: './stepaerobics.svg',
-    stretching: './stretching.svg',
-    yoga: './yoga.svg',
-  };
+//   const courseNameMapping = {
+//     bodyflex: './bodyflex.svg',
+//     dancefitness: './dancefitness.svg',
+//     stepaerobics: './stepaerobics.svg',
+//     stretching: './stretching.svg',
+//     yoga: './yoga.svg',
+//   };
 
-  const courseTitleMapping = {
-    bodyflex: 'Бодифлекс',
-    dancefitness: 'Танцевальный фитнес',
-    stepaerobics: 'Степ-аэробика',
-    stretching: 'Стретчинг',
-    yoga: 'Йога',
-  };
+//   const courseTitleMapping = {
+//     bodyflex: 'Бодифлекс',
+//     dancefitness: 'Танцевальный фитнес',
+//     stepaerobics: 'Степ-аэробика',
+//     stretching: 'Стретчинг',
+//     yoga: 'Йога',
+//   };
 
 
   useEffect(() => {
@@ -39,9 +43,6 @@ export const ProfilePage = () => {
   }, [])
 
 
-  const exit = () => {
-    signOut()
-  }
 
   function mouseOut() {
 		if (isOpen) {
@@ -49,11 +50,6 @@ export const ProfilePage = () => {
 		}
 	}
 
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleOpen = () => setIsOpen(!isOpen);
-
-  const name = localStorage.getItem('name')
 
   return (
 		<S.Wrapper>
@@ -79,27 +75,12 @@ export const ProfilePage = () => {
 			<S.MyProf>Мой профиль</S.MyProf>
 			<S.NamePass>
 				<S.SpanName>Мой логин: {name}</S.SpanName>
-				<S.SpanName>Пароль: {user.password}</S.SpanName>
+				{/* <S.SpanName>Пароль: {user.password}</S.SpanName> */}
 				<S.ButtonS>Редактировать логин</S.ButtonS>
 				<S.ButtonS>Редактировать пароль</S.ButtonS>
 			</S.NamePass>
 			<S.MyCoursesW>Мои курсы</S.MyCoursesW>
-			<S.MyCourses>
-				{user.courses &&
-					Object.keys(user.courses).map(courseKey => {
-						const courseSvg = courseNameMapping[courseKey];
-						const courseTitle = courseTitleMapping[courseKey];
-						return (
-							<S.CoursesNameAndSVG key={courseKey}>
-								<S.NameCourse>{courseTitle}</S.NameCourse>
-								<div>
-									<img src={courseSvg} alt={courseTitle} />
-								</div>
-								<S.ButtonGo>Перейти</S.ButtonGo>
-							</S.CoursesNameAndSVG>
-						);
-					})}
-			</S.MyCourses>
+			<ListLessons/>
 		</S.Wrapper>
 	);
 };
