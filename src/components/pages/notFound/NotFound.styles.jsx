@@ -113,16 +113,16 @@ export const Container = styled.div`
   background: #271a58;
 `;
 export const MainText = styled.h1`
-  text-align: center;
-  color: #fff;
-  font-variant-numeric: lining-nums proportional-nums;
-  font-feature-settings: "clig" off, "liga" off;
-  /* Pres → Heading Xl */
-  font-family: StratosSkyeng;
-  font-size: 160px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 168px;
+	text-align: center;
+	color: #fff;
+	font-variant-numeric: lining-nums proportional-nums;
+	font-feature-settings: 'clig' off, 'liga' off;
+	/* Pres → Heading Xl */
+	font-family: 'StratosSkyeng';
+	font-size: 160px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 168px;
 `;
 
 export const CenterError = styled.div`

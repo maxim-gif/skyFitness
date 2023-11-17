@@ -63,6 +63,12 @@ export const SpanName = styled.span`
   font-style: normal;
   font-weight: 400;
   line-height: 32px; /* 133.333% */
+  text-overflow: ellipsis;
+  overflow: hidden;
+  min-width: 64px;
+  max-width: 160px;
+  margin-left: 15px;
+  margin-right: 12px;
 `;
 
 export const NamePass = styled.div`
@@ -110,19 +116,19 @@ export const MyCoursesW = styled.h1`
 `;
 
 export const NameCourse = styled.span`
-  width: 290px;
-  height: 120px;
-  position: absolute;
-  color: #000;
-  font-variant-numeric: lining-nums proportional-nums;
-  font-family: Abhaya Libre ExtraBold;
-  font-size: 36px;
-  font-style: normal;
-  font-weight: 800;
-  line-height: 110%;
-  letter-spacing: -0.5px;
-  padding-top: 30px;
-  padding-left: 30px;
+	width: 290px;
+	height: 120px;
+	position: absolute;
+	color: #000;
+	font-variant-numeric: lining-nums proportional-nums;
+	font-family: 'Abhaya Libre ExtraBold';
+	font-size: 36px;
+	font-style: normal;
+	font-weight: 800;
+	line-height: 110%;
+	letter-spacing: -0.5px;
+	padding-top: 30px;
+	padding-left: 30px;
 `;
 
 export const MyCourses = styled.div`
@@ -134,7 +140,7 @@ export const MyCourses = styled.div`
   padding-bottom: 60px;
 `;
 
-export const CouresNameAndSVG = styled.div`
+export const CoursesNameAndSVG = styled.div`
   border-radius: 29.998px;
   background: #fff;
   box-shadow: -10px 10px 15.99882px 0px rgba(0, 0, 0, 0.1),
@@ -165,8 +171,8 @@ position: relative;
 	}`;
 
   export const MenuStyle = styled.div`
-  display: flex;
-  gap: 15px;
-  align-items: center;
-  flex-wrap: wrap;
-  `;
+		display: flex;
+		position: relative;
+		align-items: center;
+		cursor: pointer;
+	`;
