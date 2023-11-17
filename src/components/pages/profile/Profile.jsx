@@ -5,6 +5,7 @@ import { signOut } from "@firebase/auth";
 import { getData } from "../../api/api";
 import { useEffect, useState } from "react";
 import { MenuProfile } from "../../menuProf/MenuProfile";
+import { ListLessons } from "../../listLesons";
 
 
 export const ProfilePage = () => {
@@ -84,22 +85,7 @@ export const ProfilePage = () => {
 				<S.ButtonS>Редактировать пароль</S.ButtonS>
 			</S.NamePass>
 			<S.MyCoursesW>Мои курсы</S.MyCoursesW>
-			<S.MyCourses>
-				{user.courses &&
-					Object.keys(user.courses).map(courseKey => {
-						const courseSvg = courseNameMapping[courseKey];
-						const courseTitle = courseTitleMapping[courseKey];
-						return (
-							<S.CoursesNameAndSVG key={courseKey}>
-								<S.NameCourse>{courseTitle}</S.NameCourse>
-								<div>
-									<img src={courseSvg} alt={courseTitle} />
-								</div>
-								<S.ButtonGo>Перейти</S.ButtonGo>
-							</S.CoursesNameAndSVG>
-						);
-					})}
-			</S.MyCourses>
+			<ListLessons/>
 		</S.Wrapper>
 	);
 };

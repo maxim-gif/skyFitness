@@ -1,11 +1,11 @@
 import { NavLink } from "react-router-dom";
-import * as S from "./ex.style";
+import * as S from "./Profile.styles";
 import { useSelector } from "react-redux";
 import { signOut } from "@firebase/auth";
 import { getData } from "../../api/api";
 import { useEffect, useState } from "react";
-import { MenuProfile } from "../../menuProf";
 import { ListLessons } from "../../listLesons";
+import { MenuProfile } from "../../menuProf/MenuProfile";
 
 
 export const Profile = () => {
