@@ -163,3 +163,10 @@ position: relative;
 	&:active {
 		background: #EBFFAB;
 	}`;
+
+  export const MenuStyle = styled.div`
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  flex-wrap: wrap;
+  `;
