@@ -10,19 +10,20 @@ export const WorkOut = () => {
   const user = useSelector((state) => state.playerControl.dataUser);
   const [values, setValues] = useState([]);
 
+  const storedLesson = window.localStorage.getItem("lesson");
+  const lesson = storedLesson ? JSON.parse(storedLesson) : null;
 
+  const renderExercises = () => {
+    if (lesson.exercises && lesson.exercises.length > 0) {
+      return lesson.exercises.map((exercise, index) => (
+        <S.LiEx key={index}>{exercise}</S.LiEx>
+      ));
+    } else {
+      return "";
+    }
+  };
 
-  useEffect(() => {
-    getData()
-      .then((data) => {
-        const vals = Object.values(data);
-        const found = vals.find((item) => item._id === "1");
-        setValues(found);
-      })
-      .catch((error) => console.error(error));
-  }, []);
-
-  console.log(values);
+  console.log(lesson.exercises);
 
   const exit = () => {
     signOut();
@@ -48,8 +49,24 @@ export const WorkOut = () => {
           <MenuProfile />
         </S.MenuStyle>
       </S.LogoHeader>
-      <S.MyProf>{values.name}</S.MyProf>
-
+      <S.MyProf>{lesson.name}</S.MyProf>
+      <iframe
+        width="1160"
+        height="639"
+        src={lesson.link}
+        frameborder="0"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      />
+      <S.ExProgress>
+        <div>
+          <S.SpanEx>Упражнения:</S.SpanEx>
+          <ul>{renderExercises()}</ul>
+        </div>
+        <S.Progress>
+        <S.SpanEx>Мой прогресс по тренировке:</S.SpanEx>
+        </S.Progress>
+      </S.ExProgress>
     </S.Wrapper>
   );
 };

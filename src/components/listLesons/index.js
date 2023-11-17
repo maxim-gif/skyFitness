@@ -2,11 +2,13 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { getData } from "../api/api";
 import * as S from "./listLessons.style";
+import { useNavigate } from "react-router";
 
 export const ListLessons = () => {
   const user = useSelector((state) => state.playerControl.dataUser);
   const [values, setValues] = useState([]);
 
+  const navigate = useNavigate();
   const [activeModal, setActiveModal] = useState(null);
 
   const closeModal = () => setActiveModal(null);
@@ -40,6 +42,15 @@ export const ListLessons = () => {
       })
       .catch((error) => console.error(error));
   }, []);
+
+
+  const goToLink = (e, lesson) => {
+    e.preventDefault(); 
+    window.localStorage.setItem('lesson', JSON.stringify(lesson));
+    navigate('/workout');
+  };
+
+
 
   return (
     <S.MyCourses>
@@ -145,11 +156,10 @@ export const ListLessons = () => {
                     </svg>
                   </S.CloseButton>
                   <S.SpanName>Выберите тренировку</S.SpanName>
-
                   {course &&
                     course.workout.map((lesson, index) => (
                       <S.Element>
-                        <a href={lesson.link} key={index}>
+                        <a href={lesson.link} key={index} onClick={(e) => goToLink(e, lesson)}>
                           {lesson.name}
                         </a>
                       </S.Element>

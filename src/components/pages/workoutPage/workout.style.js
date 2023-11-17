@@ -172,4 +172,37 @@ export const MenuStyle = styled.div`
   flex-wrap: wrap;
 `;
 
+export const SpanEx = styled.span`
+  color: #000;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px;
+  color: ;
+`;
 
+export const LiEx = styled.li`
+  list-style-type: disc;
+  color: black;
+`;
+
+export const ExProgress = styled.div`
+  padding-top: 75px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-bottom: 100px;
+`;
+
+export const Progress = styled.div`
+  padding-top: 36px;
+  width: 638px;
+  height: 336px;
+  border-radius: 30px;
+  background: #f2f2f2;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+`;
