@@ -16,21 +16,6 @@ export const WorkOut = () => {
 
   const openModal = () => setModalIsOpen(true);
 
-  //   const courseNameMapping = {
-  //     bodyflex: './bodyflex.svg',
-  //     dancefitness: './dancefitness.svg',
-  //     stepaerobics: './stepaerobics.svg',
-  //     stretching: './stretching.svg',
-  //     yoga: './yoga.svg',
-  //   };
-
-  //   const courseTitleMapping = {
-  //     bodyflex: 'Бодифлекс',
-  //     dancefitness: 'Танцевальный фитнес',
-  //     stepaerobics: 'Степ-аэробика',
-  //     stretching: 'Стретчинг',
-  //     yoga: 'Йога',
-  //   };
 
   useEffect(() => {
     getData()
