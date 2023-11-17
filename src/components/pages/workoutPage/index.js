@@ -1,23 +1,13 @@
-import { Link, useParams, useNavigate, NavLink } from "react-router-dom";
-import * as S from "./kourses.style";
-import React, { useEffect, useState } from "react";
-
-import foot from "../../../img/coursesImage/foot.svg";
-import svgAero from "../../../img/coursesImage/svgAero.svg";
-import svgStrech from "../../../img/coursesImage/svgStrach.svg";
-import svgYoga from "../../../img/coursesImage/svgYoga.svg";
-import svgBodyfleks from "../../../img/coursesImage/svgBodyfleks.svg";
-import svgDance from "../../../img/coursesImage/svgDance.svg";
-import hand from "../../../img/coursesImage/hand.svg";
+import { NavLink } from "react-router-dom";
+import * as S from "./workout.style";
+import { useSelector } from "react-redux";
+import { signOut } from "@firebase/auth";
 import { getData } from "../../api/api";
+import { useEffect, useState } from "react";
+import { MenuProfile } from "../../menuProf";
 
-export const PageCourses = (props) => {
-  const navigate = useNavigate();
-
-  const logo = `${process.env.PUBLIC_URL}/logo2.png`;
-
-  let { id } = useParams();
-
+export const WorkOut = () => {
+  const user = useSelector((state) => state.playerControl.dataUser);
   const [values, setValues] = useState([]);
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -26,98 +16,69 @@ export const PageCourses = (props) => {
 
   const openModal = () => setModalIsOpen(true);
 
+  //   const courseNameMapping = {
+  //     bodyflex: './bodyflex.svg',
+  //     dancefitness: './dancefitness.svg',
+  //     stepaerobics: './stepaerobics.svg',
+  //     stretching: './stretching.svg',
+  //     yoga: './yoga.svg',
+  //   };
+
+  //   const courseTitleMapping = {
+  //     bodyflex: 'Бодифлекс',
+  //     dancefitness: 'Танцевальный фитнес',
+  //     stepaerobics: 'Степ-аэробика',
+  //     stretching: 'Стретчинг',
+  //     yoga: 'Йога',
+  //   };
+
   useEffect(() => {
     getData()
       .then((data) => {
         const vals = Object.values(data);
-        const found = vals.find((item) => item._id === id);
+        const found = vals.find((item) => item._id === "1");
         setValues(found);
       })
-
       .catch((error) => console.error(error));
-  }, [id]);
+  }, []);
 
-  if (!values) {
-    navigate("/NotfoundPage");
-    return null;
-  }
+  console.log(values);
 
-  let svgMain;
-
-  switch (Number(id)) {
-    case 0:
-      svgMain = svgBodyfleks;
-      break;
-    case 1:
-      svgMain = svgDance;
-      break;
-    case 2:
-      svgMain = svgAero;
-      break;
-    case 3:
-      svgMain = svgStrech;
-      break;
-    default:
-      svgMain = svgYoga;
-  }
+  const exit = () => {
+    signOut();
+  };
 
   return (
-    <React.Fragment>
-      <S.Wrapper>
-        <div>
-          <S.MainCenterblock>
-            <Link to="/">
-              <img src={logo} alt="Logo" />
-            </Link>
-            <NavLink to="/auth">
-              <S.Button>Войти</S.Button>
-            </NavLink>
-          </S.MainCenterblock>
-        </div>
-        <S.TextImg>
-          <S.Text>{values.name}</S.Text>
-          <img src={svgMain} alt="My SVG Icon" />
-        </S.TextImg>
-        <S.Foryou>Подойдет для вас, если:</S.Foryou>
-        <S.Ul>
-          {values.forYou &&
-            values.forYou.map((item, index) => (
-              <S.Ulli key={index}>
-                <S.NnumberLi>{index + 1}</S.NnumberLi>
-                <S.Li>{item}</S.Li>
-              </S.Ulli>
-            ))}
-        </S.Ul>
-        <S.Foryou>Направления:</S.Foryou>
-        <div>
-          <S.DirectionsOl>
-            {values.directions &&
-              values.directions.map((direction, directionIndex) => (
-                <S.LiDw key={directionIndex}>{direction}</S.LiDw>
-              ))}
-          </S.DirectionsOl>
-        </div>
-        <S.Description>
-          <S.StyledParagraph>{values.description}</S.StyledParagraph>
-        </S.Description>
-        <S.Foot>
-          <img src={foot} alt="My SVG Icon" />
-          <S.Span>
-            Оставьте заявку на пробное занятие, мы свяжемся с вами, поможем с
-            выбором направления и тренера, с которым тренировки принесут
-            здоровье и радость!
-          </S.Span>
-          <S.ButtonS onClick={openModal}>Записаться на тренировку</S.ButtonS>
-          {modalIsOpen && (
-            <S.BackModal>
-              <S.Modal>
-                <S.CloseButton onClick={closeModal}>
+    <S.Wrapper>
+      <S.LogoHeader>
+        <NavLink to="/">
+          <S.Logo src="/logo2.png"></S.Logo>
+        </NavLink>
+        <S.MenuStyle>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="50"
+            height="50"
+            viewBox="0 0 50 50"
+            fill="none"
+          >
+            <circle cx="25" cy="25" r="25" fill="#D9D9D9" />
+          </svg>
+          <S.SpanName>{user.email ? user.email : "Войти"}</S.SpanName>
+          <MenuProfile />
+        </S.MenuStyle>
+      </S.LogoHeader>
+      <S.MyProf>{values.name}</S.MyProf>
+      <button onClick={openModal}> посмотреть уроки</button>
+      {modalIsOpen && (
+        <S.ListOfLessons>
+                            <S.CloseButton onClick={closeModal}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     x="0px"
                     y="0px"
-                    width="50"
-                    height="50"
+                    width="30"
+                    height="30"
                     viewBox="0 0 48 48"
                   >
                     <linearGradient
@@ -195,15 +156,18 @@ export const PageCourses = (props) => {
                     ></polygon>
                   </svg>
                 </S.CloseButton>
-                <S.SpanS>Вы успешно записались!</S.SpanS>
-                <div>
-                  <img src={hand} alt="OK"></img>
-                </div>
-              </S.Modal>
-            </S.BackModal>
-          )}
-        </S.Foot>
-      </S.Wrapper>
-    </React.Fragment>
+          <S.SpanName>Выберите тренировку</S.SpanName>
+
+          {values.workout &&
+            values.workout.map((lesson, index) => (
+              <S.Element>
+                <a href={lesson.link} key={index}>
+                  {lesson.name}
+                </a>
+              </S.Element>
+            ))}
+        </S.ListOfLessons>
+      )}
+    </S.Wrapper>
   );
 };

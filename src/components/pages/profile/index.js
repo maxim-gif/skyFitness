@@ -11,6 +11,12 @@ export const Profile = () => {
   const user = useSelector((state) => state.playerControl.dataUser);
   const [values, setValues] = useState([]);
 
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  const closeModal = () => setModalIsOpen(false);
+  
+  const openModal = () => setModalIsOpen(true);
+
   const courseNameMapping = {
     bodyflex: './bodyflex.svg',
     dancefitness: './dancefitness.svg',
@@ -39,6 +45,8 @@ export const Profile = () => {
   }, [])
 
   console.log(values);
+
+  console.log(user.courses);
 
   const exit = () => {
     signOut()
@@ -79,6 +87,7 @@ export const Profile = () => {
         <img src={courseSvg} alt={courseTitle}/>
         </div>
         <S.ButtonGo>Перейти</S.ButtonGo>
+        
     </S.CouresNameAndSVG>
 
   )
