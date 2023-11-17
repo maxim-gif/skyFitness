@@ -5,7 +5,7 @@ import { Auth } from './components/pages/auth/Auth';
 import { Reg } from './components/pages/reg/Reg';
 import { PageCourses } from './components/pages/kurses/kourses';
 import { NotfoundPage } from './components/pages/notFound/index';
-import { Profile } from './components/pages/exercises';
+import { Profile } from './components/pages/profile';
 
 
 

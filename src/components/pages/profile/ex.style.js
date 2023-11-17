@@ -14,6 +14,7 @@ export const LogoHeader = styled.div`
   align-content: center;
   align-items: center;
   justify-content: space-between;
+  align-items: flex-end;
 `;
 
 export const Logo = styled.img`

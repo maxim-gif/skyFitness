@@ -51,7 +51,7 @@ export const Profile = () => {
           <S.Logo src="/logo2.png"></S.Logo>
         </NavLink>
         <NavLink to='/auth'>
-          <S.Button>{user.email ? 'Выйти' : 'Войти'}</S.Button>
+          <S.Button>{user.email ? user.email : 'Войти'}</S.Button>
         </NavLink>
       </S.LogoHeader>
       <S.MyProf>Мой профиль</S.MyProf>
