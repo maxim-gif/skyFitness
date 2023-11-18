@@ -1,7 +1,5 @@
 import { NavLink } from "react-router-dom";
 import * as S from "./Profile.styles";
-import { useSelector } from "react-redux";
-import { signOut } from "@firebase/auth";
 import { getData } from "../../api/api";
 import { useEffect, useState } from "react";
 import { MenuProfile } from "../../menuProf/MenuProfile";
@@ -10,27 +8,9 @@ import { ListLessons } from "../../listLesons";
 
 export const ProfilePage = () => {
 	const name = localStorage.getItem('name');
-	// const user = useSelector((state) => state.playerControl.dataUser);
 	const [values, setValues] = useState([]);
 	const [isOpen, setIsOpen] = useState(false);
 	const toggleOpen = () => setIsOpen(!isOpen);
-
-//   const courseNameMapping = {
-//     bodyflex: './bodyflex.svg',
-//     dancefitness: './dancefitness.svg',
-//     stepaerobics: './stepaerobics.svg',
-//     stretching: './stretching.svg',
-//     yoga: './yoga.svg',
-//   };
-
-//   const courseTitleMapping = {
-//     bodyflex: 'Бодифлекс',
-//     dancefitness: 'Танцевальный фитнес',
-//     stepaerobics: 'Степ-аэробика',
-//     stretching: 'Стретчинг',
-//     yoga: 'Йога',
-//   };
-
 
   useEffect(() => {
   getData()
