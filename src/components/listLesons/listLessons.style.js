@@ -3,19 +3,19 @@ import styled from "styled-components";
 
 
 export const NameCourse = styled.span`
-  width: 290px;
-  height: 120px;
-  position: absolute;
-  color: #000;
-  font-variant-numeric: lining-nums proportional-nums;
-  font-family: Abhaya Libre ExtraBold;
-  font-size: 36px;
-  font-style: normal;
-  font-weight: 800;
-  line-height: 110%;
-  letter-spacing: -0.5px;
-  padding-top: 30px;
-  padding-left: 30px;
+	width: 290px;
+	height: 120px;
+	position: absolute;
+	color: #000;
+	font-variant-numeric: lining-nums proportional-nums;
+	font-family: 'Abhaya Libre ExtraBold';
+	font-size: 36px;
+	font-style: normal;
+	font-weight: 800;
+	line-height: 110%;
+	letter-spacing: -0.5px;
+	padding-top: 30px;
+	padding-left: 30px;
 `;
 
 export const SpanName = styled.span`
@@ -27,7 +27,7 @@ export const SpanName = styled.span`
   line-height: 32px; /* 133.333% */
 `;
 
-export const CouresNameAndSVG = styled.div`
+export const CoursesNameAndSVG = styled.div`
   border-radius: 29.998px;
   background: #fff;
   box-shadow: -10px 10px 15.99882px 0px rgba(0, 0, 0, 0.1),

@@ -77,9 +77,7 @@ function mouseOut() {
   }
 
   return (
-    <React.Fragment>
       <S.Wrapper>
-        <div>
           <S.MainCenterblock>
             <Link to="/">
               <img src={logo} alt="Logo" />
@@ -104,7 +102,6 @@ function mouseOut() {
 						</NavLink>
 					)}
           </S.MainCenterblock>
-        </div>
         <S.TextImg>
           <S.Text>{values.name}</S.Text>
           <img src={svgMain} alt="My SVG Icon" />
@@ -235,6 +232,5 @@ function mouseOut() {
           )}
         </S.Foot>
       </S.Wrapper>
-    </React.Fragment>
   );
 };

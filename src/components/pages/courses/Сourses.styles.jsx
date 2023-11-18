@@ -20,11 +20,9 @@ export const MainCenterblock = styled.div`
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
-  padding-left: 140px;
 `;
 export const TextImg = styled.div`
   padding-top: 75px;
-  padding-left: 140px;
 `;
 export const Button = styled.button`
   display: inline-flex;
@@ -52,18 +50,19 @@ export const Button = styled.button`
 `;
 
 export const Text = styled.p`
-z-index: 1;
+    z-index: 1;
     position: absolute;
     padding-left: 30px;
     border-radius: 30px;
     color: #000;
     font-variant-numeric: lining-nums proportional-nums;
-	font-family: 'StratosSkyeng';
+	  font-family: 'StratosSkyeng';
     font-size: 64px;
     font-style: normal;
     font-weight: 400;
     line-height: 72px;
     letter-spacing: -0.8px;
+    padding-top: 30px;
 
 `;
 export const Li = styled.li`
@@ -80,7 +79,6 @@ export const Li = styled.li`
 `;
 
 export const Ul = styled.div`
-  padding-left: 140px;
   display: flex;
 
   flex-wrap: wrap;
@@ -120,7 +118,6 @@ export const Foryou = styled.p`
   font-style: normal;
   font-weight: 400;
   line-height: 48px;
-  padding-left: 140px;
   text-align: left;
   padding-top: 75px;
   padding-bottom: 40px;
@@ -129,12 +126,10 @@ export const Foryou = styled.p`
 export const Directions = styled.div`
   text-align: left;
   padding-top: 107px;
-  padding-left: 140px;
 `;
 
 export const DirectionsOl = styled.div`
   column-count: 2;
-  padding-left: 170px;
   padding-top: 22px;
 `;
 
@@ -153,14 +148,12 @@ export const LiDw = styled.li`
 
 export const Description = styled.div`
   margin-top: 75px;
-
   width: 100%;
   font-family: StratosSkyeng;
   font-size: 24px;
   font-style: normal;
   font-weight: 400;
   line-height: 32px; /* 133.333% */
-  padding-left: 170px;
   text-align: left;
   text-align: justify;
 `;
@@ -184,7 +177,6 @@ export const Foot = styled.div`
   margin-top: 75px;
   display: flex;
   align-items: flex-start;
-  padding-left: 140px;
 `;
 
 export const ButtonS = styled.button`
@@ -202,8 +194,9 @@ export const ButtonS = styled.button`
   line-height: 24px; /* 133.333% */
   letter-spacing: -0.05px;
   position: absolute;
-  left: 11.7rem;
+  left: 3.25rem;
   bottom: 1rem;
+  
 
   &:hover {
     background: #2d1f79;
