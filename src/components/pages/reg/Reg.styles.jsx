@@ -16,6 +16,15 @@ export const Container = styled.div`
 	min-height: 100vh;
 `;
 
+export const Error = styled.div`
+width: 280px;
+color: coral;
+font-weight: 400;
+font-size: 14px;
+line-height: 24px;
+text-align: center;
+`
+
 export const LogInForm = styled.form`
 	width: 366px;
 	height: 439px;

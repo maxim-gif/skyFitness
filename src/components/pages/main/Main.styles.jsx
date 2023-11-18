@@ -15,6 +15,7 @@ export const Header = styled.header``;
 export const LogoHeader = styled.div`
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
 `;
 
 export const Logo = styled.img``;
@@ -130,4 +131,26 @@ export const UpButton = styled.button`
 	&:focus {
 		background: rgba(235, 255, 171, 1);
 	}
+`;
+
+export const MenuStyle = styled.div`
+	display: flex;
+	position: relative;
+	align-items: center;
+	cursor: pointer;
+`;
+
+export const SpanName = styled.span`
+	color: ${props => props.$color ? 'white' : 'black'};
+	font-variant-numeric: lining-nums proportional-nums;
+	font-size: 24px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 32px; /* 133.333% */
+	text-overflow: ellipsis;
+	overflow: hidden;
+	min-width: 64px;
+	max-width: 160px;
+	margin-left: 15px;
+	margin-right: 12px;
 `;

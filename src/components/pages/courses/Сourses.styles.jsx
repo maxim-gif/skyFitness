@@ -37,7 +37,7 @@ export const Button = styled.button`
   color: #fff;
   text-align: center;
   font-variant-numeric: lining-nums proportional-nums;
-  font-family: StratosSkyeng;
+  font-family: 'StratosSkyeng';
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -58,18 +58,18 @@ z-index: 1;
     border-radius: 30px;
     color: #000;
     font-variant-numeric: lining-nums proportional-nums;
-    font-family: StratosSkyeng;
+	font-family: 'StratosSkyeng';
     font-size: 64px;
     font-style: normal;
     font-weight: 400;
     line-height: 72px;
     letter-spacing: -0.8px;
-}
+
 `;
 export const Li = styled.li`
   color: #000;
   font-variant-numeric: lining-nums proportional-nums;
-  font-family: StratosSkyeng;
+  font-family: 'StratosSkyeng';
   font-size: 24px;
   font-style: normal;
   font-weight: 400;
@@ -99,7 +99,7 @@ export const NnumberLi = styled.div`
   color: #000;
   text-align: center;
   font-variant-numeric: lining-nums proportional-nums;
-  font-family: StratosSkyeng;
+  font-family: 'StratosSkyeng';
   font-size: 32px;
   font-style: normal;
   font-weight: 400;
@@ -113,7 +113,7 @@ display: flex;
     flex-direction: row;
     align-content: flex-start;
     align-items: flex-start;
-}
+
 `;
 export const Foryou = styled.p`
   font-size: 40px;
@@ -252,4 +252,44 @@ export const SpanS = styled.span`
   font-size: 2rem;
   position: absolute;
   padding: 25px 45px 223px;
+`;
+
+export const SpanName = styled.span`
+	color: #000;
+	font-variant-numeric: lining-nums proportional-nums;
+	font-size: 24px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 32px; /* 133.333% */
+	text-overflow: ellipsis;
+	overflow: hidden;
+	min-width: 64px;
+	max-width: 160px;
+	margin-left: 15px;
+	margin-right: 12px;
+`;
+
+export const MenuStyle = styled.div`
+	display: flex;
+	position: relative;
+	align-items: center;
+	cursor: pointer;
+`;
+
+export const AuthButton = styled.button`
+	width: 77px;
+	height: 36px;
+	border: #140d40;
+	border-radius: 46px;
+	background: #140d40;
+	color: #ffffff;
+	font-size: 16px;
+	font-weight: 400;
+	text-align: center;
+	&:hover {
+		background: rgba(45, 31, 121, 1);
+	}
+	&:focus {
+		background: rgba(59, 41, 161, 1);
+	}
 `;

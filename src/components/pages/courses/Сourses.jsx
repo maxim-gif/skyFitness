@@ -1,17 +1,20 @@
 import { Link, useParams, useNavigate, NavLink } from "react-router-dom";
-import * as S from "./kourses.style";
+import * as S from "./Сourses.styles";
 import React, { useEffect, useState } from "react";
 
 import foot from "../../../img/coursesImage/foot.svg";
 import svgAero from "../../../img/coursesImage/svgAero.svg";
-import svgStrech from "../../../img/coursesImage/svgStretch.svg";
+import svgStretch from "../../../img/coursesImage/svgStretch.svg";
 import svgYoga from "../../../img/coursesImage/svgYoga.svg";
-import svgBodyfleks from "../../../img/coursesImage/svgBodyflex.svg";
+import svgBodyflex from "../../../img/coursesImage/svgBodyflex.svg";
 import svgDance from "../../../img/coursesImage/svgDance.svg";
 import hand from "../../../img/coursesImage/hand.svg";
 import { getData } from "../../api/api";
+import { MenuProfile } from "../../menuProf/MenuProfile";
 
-export const PageCourses = (props) => {
+export const CoursesPage = (props) => {
+  const name = localStorage.getItem("name");
+
   const navigate = useNavigate();
 
   const logo = `${process.env.PUBLIC_URL}/logo2.png`;
@@ -24,7 +27,19 @@ export const PageCourses = (props) => {
 
   const closeModal = () => setModalIsOpen(false);
 
+  const [isOpen, setIsOpen] = useState(false);
+
   const openModal = () => setModalIsOpen(true);
+
+  const toggleOpen = () => setIsOpen(!isOpen);
+ 
+  console.log(name);
+
+function mouseOut() {
+	  if (isOpen) {
+		  toggleOpen();
+	  }
+  }
 
   useEffect(() => {
     getData()
@@ -46,7 +61,7 @@ export const PageCourses = (props) => {
 
   switch (Number(id)) {
     case 0:
-      svgMain = svgBodyfleks;
+      svgMain = svgBodyflex;
       break;
     case 1:
       svgMain = svgDance;
@@ -55,7 +70,7 @@ export const PageCourses = (props) => {
       svgMain = svgAero;
       break;
     case 3:
-      svgMain = svgStrech;
+      svgMain = svgStretch;
       break;
     default:
       svgMain = svgYoga;
@@ -69,9 +84,25 @@ export const PageCourses = (props) => {
             <Link to="/">
               <img src={logo} alt="Logo" />
             </Link>
-            <NavLink to="/auth">
-              <S.Button>Войти</S.Button>
-            </NavLink>
+					{name ? (
+						<S.MenuStyle onMouseLeave={mouseOut} onClick={toggleOpen}>
+							<svg
+								xmlns='http://www.w3.org/2000/svg'
+								width='50'
+								height='50'
+								viewBox='0 0 50 50'
+								fill='none'
+							>
+								<circle cx='25' cy='25' r='25' fill='#D9D9D9' />
+							</svg>
+							<S.SpanName>{name}</S.SpanName>
+							<MenuProfile isOpen={isOpen} />
+						</S.MenuStyle>
+					) : (
+						<NavLink to='/auth'>
+							<S.AuthButton>Войти</S.AuthButton>
+						</NavLink>
+					)}
           </S.MainCenterblock>
         </div>
         <S.TextImg>
