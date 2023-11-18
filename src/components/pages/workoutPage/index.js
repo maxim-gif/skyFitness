@@ -3,8 +3,17 @@ import * as S from './workout.style';
 import { useSelector } from 'react-redux';
 
 import { MenuProfile } from '../../menuProf/MenuProfile';
+import { useEffect, useState } from 'react';
 
 export const WorkOut = () => {
+  const [color, setColor] = useState();
+
+	const name = localStorage.getItem('name');
+
+	const [isOpen, setIsOpen] = useState(false);
+
+	const toggleOpen = () => setIsOpen(!isOpen);
+
 	const user = useSelector(state => state.playerControl.dataUser);
 
 	const storedLesson = window.localStorage.getItem('lesson');
@@ -20,6 +29,18 @@ export const WorkOut = () => {
 		}
 	};
 
+  
+
+	useEffect(() => {
+		setColor(false);
+	}, []);
+
+	function mouseOut() {
+		if (isOpen) {
+			toggleOpen();
+		}
+	}
+
 	console.log(lesson.exercises);
 
 	return (
@@ -28,7 +49,7 @@ export const WorkOut = () => {
 				<NavLink to='/'>
 					<S.Logo src='/logo2.png'></S.Logo>
 				</NavLink>
-				<S.MenuStyle>
+				<S.MenuStyle onMouseLeave={mouseOut} onClick={toggleOpen}>
 					<svg
 						xmlns='http://www.w3.org/2000/svg'
 						width='50'
@@ -36,10 +57,15 @@ export const WorkOut = () => {
 						viewBox='0 0 50 50'
 						fill='none'
 					>
-						<circle cx='25' cy='25' r='25' fill='#D9D9D9' />
+						<circle
+							cx='25'
+							cy='25'
+							r='25'
+							fill={color ? 'rgb(105, 105, 105)' : '#D9D9D9'}
+						/>
 					</svg>
-					<S.SpanName>{user.email ? user.email : 'Войти'}</S.SpanName>
-					<MenuProfile />
+					<S.SpanName $color={color}>{name}</S.SpanName>
+					<MenuProfile color={color} isOpen={isOpen} />
 				</S.MenuStyle>
 			</S.LogoHeader>
 			<S.MyProf>{lesson.name}</S.MyProf>
