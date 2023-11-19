@@ -16,7 +16,7 @@
   import { MenuProfile } from "../../menuProf/MenuProfile";
 
   export const CoursesPage = (props) => {
-    const name = localStorage.getItem("name");
+    const name = window.localStorage.getItem("name");
 
     const navigate = useNavigate();
     const dispatch = useDispatch()
@@ -141,7 +141,7 @@
               выбором направления и тренера, с которым тренировки принесут
               здоровье и радость!
             </S.Span>
-            <S.ButtonS onClick={() => {
+            <S.ButtonS onClick={() => { 
               openModal() 
               bayCourse(nameCourse[values._id]);
               dispatch(bay(nameCourse[values._id]))
