@@ -9,12 +9,6 @@ import { onAuthStateChanged } from 'firebase/auth';
 import { useDispatch } from 'react-redux'
 import { signIn } from '../../store/actions/creators'
 
-
-
-import { useEffect, useState } from 'react';
-import { MenuProfile } from '../../menuProf/MenuProfile';
-import { ListLessons } from '../../listLesons';
-
 export const ProfilePage = () => {
 
 	const name = window.localStorage.getItem("name");

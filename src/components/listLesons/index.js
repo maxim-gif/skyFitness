@@ -58,7 +58,7 @@ export const ListLessons = ({userLesson}) => {
         const course = values.find((value) => value._id === courseKey);
 
         return (
-          <S.CouresNameAndSVG key={courseKey} $enabled={userLesson[courseKey].statusBay}> 
+          <S.CoursesNameAndSVG key={courseKey} $enabled={userLesson[courseKey].statusBay}> 
 						<S.NameCourse>{courseTitle}</S.NameCourse>
 						<div>
 							<img src={courseSvg} alt={courseTitle} />

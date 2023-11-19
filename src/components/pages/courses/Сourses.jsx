@@ -158,6 +158,14 @@
                       height="50"
                       viewBox="0 0 48 48"
                     >
+                      <linearGradient
+                        id="9xVvr7yCTUSTEWJ7qqwo6a_2xlEjUnUxAg1_gr1"
+                        x1="1.956"
+                        x2="54.829"
+                        y1="1.956"
+                        y2="54.829"
+                        gradientUnits="userSpaceOnUse"
+                      >
                       <stop
                         offset="0"
                         stop-color="#262626"

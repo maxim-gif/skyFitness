@@ -28,7 +28,7 @@ export const SpanName = styled.span`
 `;
 
 
-export const CouresNameAndSVG = styled.div`
+export const CoursesNameAndSVG = styled.div`
   display: ${props => props.$enabled ? `block` : `none`};
   border-radius: 29.998px;
   background: #fff;
