@@ -14,7 +14,7 @@ export const WorkOut = () => {
 
 	const toggleOpen = () => setIsOpen(!isOpen);
 
-	const user = useSelector(state => state.playerControl.dataUser);
+	const user = useSelector(state => state.api.dataUser);
 
 	const storedLesson = window.localStorage.getItem('lesson');
 	const lesson = storedLesson ? JSON.parse(storedLesson) : null;
