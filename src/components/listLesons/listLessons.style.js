@@ -3,19 +3,19 @@ import styled from "styled-components";
 
 
 export const NameCourse = styled.span`
-  width: 290px;
-  height: 120px;
-  position: absolute;
-  color: #000;
-  font-variant-numeric: lining-nums proportional-nums;
-  font-family: Abhaya Libre ExtraBold;
-  font-size: 36px;
-  font-style: normal;
-  font-weight: 800;
-  line-height: 110%;
-  letter-spacing: -0.5px;
-  padding-top: 30px;
-  padding-left: 30px;
+	width: 290px;
+	height: 120px;
+	position: absolute;
+	color: #000;
+	font-variant-numeric: lining-nums proportional-nums;
+	font-family: 'Abhaya Libre ExtraBold';
+	font-size: 36px;
+	font-style: normal;
+	font-weight: 800;
+	line-height: 110%;
+	letter-spacing: -0.5px;
+	padding-top: 30px;
+	padding-left: 30px;
 `;
 
 export const SpanName = styled.span`
@@ -26,6 +26,7 @@ export const SpanName = styled.span`
   font-weight: 400;
   line-height: 32px; /* 133.333% */
 `;
+
 
 export const CouresNameAndSVG = styled.div`
   display: ${props => props.$enabled ? `block` : `none`};

@@ -8,16 +8,11 @@ import { CoursesPage } from './components/pages/courses/Сourses';
 import { NotFoundPage } from './components/pages/notFound/NotFound';
 import { WorkOut } from './components/pages/workoutPage';
 
-
-
 export const AppRoutes = () => {
-
-	
-
 	return (
 		<BrowserRouter>
 			<Routes>
-				<Route path='/' element={<Main  />} />
+				<Route path='/' element={<Main />} />
 
 				<Route path='/course/:id' element={<CoursesPage />} />
 
@@ -33,4 +28,4 @@ export const AppRoutes = () => {
 			</Routes>
 		</BrowserRouter>
 	);
-}
+};

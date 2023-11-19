@@ -1,10 +1,12 @@
-import {EDIT_PROGRESS, BAY_COURSE, EDIT_EMAIL, EDIT_PASSWORD, SIGN_OUT, SIGN_IN, REGISTRATION} from '../actions/types'
-
-
-
-  
-
-
+import {
+	EDIT_PROGRESS,
+	BAY_COURSE,
+	EDIT_EMAIL,
+	EDIT_PASSWORD,
+	SIGN_OUT,
+	SIGN_IN,
+	REGISTRATION,
+} from '../actions/types';
 
 const initialState = {
     dataUser: null,
@@ -60,3 +62,4 @@ export default function apiReducer(state = initialState, action) {
             return state
     }
 }
+
