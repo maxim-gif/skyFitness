@@ -9,30 +9,57 @@ import {
 } from '../actions/types';
 
 const initialState = {
-	dataUser: [],
-};
+    dataUser: null,
+}
 
 export default function apiReducer(state = initialState, action) {
-	switch (action.type) {
-		case REGISTRATION: {
-			const { data } = action.payload;
+    switch (action.type) {
 
-			return {
-				...state,
-				dataUser: data,
-			};
-		}
+        case REGISTRATION: {
+            const { data } = action.payload
+ 
+            return {
+                ...state,
+                dataUser: data,
+            }
+        }
 
-		case SIGN_IN: {
-			const { data } = action.payload;
+        case SIGN_IN: {
+            const { data } = action.payload
+ 
+            return {
+                ...state,
+                dataUser: data,
+            }
+        }
 
-			return {
-				...state,
-				dataUser: data,
-			};
-		}
+        case SIGN_OUT: {
+            return {
+                ...state,
+                dataUser: [],
+            }
+        }
 
-		default:
-			return state;
-	}
+        case BAY_COURSE: {
+            const { data } = action.payload
+      
+            return {
+              ...state,
+              dataUser: {
+                ...state.dataUser,
+                courses: {
+                  ...state.dataUser.courses,
+                  [data]: {
+                    ...state.dataUser.courses[data],
+                    statusBay: true
+                  }
+                }
+              }
+            }
+        }
+
+        default:
+            return state
+    }
 }
+

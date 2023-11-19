@@ -27,7 +27,9 @@ export const SpanName = styled.span`
   line-height: 32px; /* 133.333% */
 `;
 
-export const CoursesNameAndSVG = styled.div`
+
+export const CouresNameAndSVG = styled.div`
+  display: ${props => props.$enabled ? `block` : `none`};
   border-radius: 29.998px;
   background: #fff;
   box-shadow: -10px 10px 15.99882px 0px rgba(0, 0, 0, 0.1),

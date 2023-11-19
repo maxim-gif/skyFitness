@@ -1,18 +1,50 @@
-import { NavLink } from 'react-router-dom';
-import * as S from './Profile.styles';
+
+import { NavLink } from "react-router-dom";
+import * as S from "./Profile.styles";
+import { useEffect, useState } from "react";
+import { MenuProfile } from "../../menuProf/MenuProfile";
+import { ListLessons } from "../../listLesons";
+import { getUserLessons, auth, editPassword } from "../../api/api";
+import { onAuthStateChanged } from 'firebase/auth';
+import { useDispatch } from 'react-redux'
+import { signIn } from '../../store/actions/creators'
+
+
 
 import { useEffect, useState } from 'react';
 import { MenuProfile } from '../../menuProf/MenuProfile';
 import { ListLessons } from '../../listLesons';
 
 export const ProfilePage = () => {
-	const [color, setColor] = useState();
 
-	const name = localStorage.getItem('name');
-
+	const name = window.localStorage.getItem("name");
+  const [color, setColor] = useState();
+	const dispatch = useDispatch()
 	const [isOpen, setIsOpen] = useState(false);
-
 	const toggleOpen = () => setIsOpen(!isOpen);
+	const [userLesson, setUserLesson] = useState(JSON.parse(window.localStorage.getItem("lesson")));
+
+
+	useEffect(() => {
+		const unsubscribe = onAuthStateChanged(auth, (user) => {
+		  if (user) {
+			(async () => {
+			  try {
+				const userData = await getUserLessons();
+				dispatch(signIn(userData));
+				setUserLesson(userData.courses)
+				console.log(userData);
+			  } catch (error) {
+				console.log(error);
+			  }
+			})();
+		  } else {
+		  }
+		});
+	  
+		return () => unsubscribe();
+	  }, []);
+
 
 	useEffect(() => {
 		setColor(false);
@@ -58,7 +90,7 @@ export const ProfilePage = () => {
 				<S.ButtonS>Редактировать пароль</S.ButtonS>
 			</S.NamePass>
 			<S.MyCoursesW>Мои курсы</S.MyCoursesW>
-			<ListLessons />
+			<ListLessons userLesson={userLesson}/>
 		</S.Wrapper>
 	);
 };
