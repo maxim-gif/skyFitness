@@ -175,13 +175,13 @@ const signupForCourse = () =>{
                   >
                     <stop
                       offset="0"
-                      stop-color="#262626"
-                      stop-opacity="0"
+                      stopOpacity="#262626"
+                      stopOpacity="0"
                     ></stop>
                     <stop
                       offset="1"
-                      stop-color="#262626"
-                      stop-opacity=".8"
+                      stopOpacity="#262626"
+                      stopOpacity=".8"
                     ></stop>
                   </linearGradient>
                   <circle
@@ -201,13 +201,13 @@ const signupForCourse = () =>{
                   >
                     <stop
                       offset="0"
-                      stop-color="#262626"
-                      stop-opacity="0"
+                      stopOpacity="#262626"
+                      stopOpacity="0"
                     ></stop>
                     <stop
                       offset="1"
-                      stop-color="#262626"
-                      stop-opacity=".8"
+                      stopOpacity="#262626"
+                      stopOpacity=".8"
                     ></stop>
                   </linearGradient>
                   <polygon
@@ -225,13 +225,13 @@ const signupForCourse = () =>{
                   >
                     <stop
                       offset="0"
-                      stop-color="#262626"
-                      stop-opacity="0"
+                      stopOpacity="#262626"
+                      stopOpacity="0"
                     ></stop>
                     <stop
                       offset="1"
-                      stop-color="#262626"
-                      stop-opacity=".8"
+                      stopOpacity="#262626"
+                      stopOpacity=".8"
                     ></stop>
                   </linearGradient>
                   <polygon

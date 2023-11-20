@@ -73,9 +73,8 @@ export const WorkOut = () => {
 				width='1160'
 				height='639'
 				src={lesson.link}
-				frameborder='0'
 				allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture'
-				allowfullscreen
+				allowFullScreen
 			/>
 			<S.ExProgress>
 				<div>
