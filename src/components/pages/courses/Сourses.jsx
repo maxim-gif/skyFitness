@@ -62,15 +62,15 @@ export const CoursesPage = (props) => {
     return null;
   }
 
-const signupForCourse = () =>{
-  if (name) {
-    openModal();
-    bayCourse(nameCourse[values._id]);
-    dispatch(bay(nameCourse[values._id]));
-  } else {
-    navigate("/auth");
-  }
-}
+  const signupForCourse = () => {
+    if (name) {
+      openModal();
+      bayCourse(nameCourse[values._id]);
+      dispatch(bay(nameCourse[values._id]));
+    } else {
+      navigate("/auth");
+    }
+  };
 
   let svgMain;
 

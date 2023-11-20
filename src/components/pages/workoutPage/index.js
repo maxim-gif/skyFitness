@@ -77,10 +77,11 @@ export const WorkOut = () => {
 				allowFullScreen
 			/>
 			<S.ExProgress>
-				<div>
+				<S.ListOfExercises>
 					<S.SpanEx>Упражнения:</S.SpanEx>
-					<ul>{renderExercises()}</ul>
-				</div>
+					<S.UlEx>{renderExercises()}</S.UlEx>
+					<S.ButtonProgress>Заполнить свой прогресс</S.ButtonProgress>
+				</S.ListOfExercises>
 				<S.Progress>
 					<S.SpanEx>Мой прогресс по тренировке:</S.SpanEx>
 				</S.Progress>

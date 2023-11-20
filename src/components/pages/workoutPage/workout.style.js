@@ -57,18 +57,18 @@ export const MyProf = styled.h1`
 `;
 
 export const SpanName = styled.span`
-	color: ${props => (props.$color ? 'white' : 'black')};
-	font-variant-numeric: lining-nums proportional-nums;
-	font-size: 24px;
-	font-style: normal;
-	font-weight: 400;
-	line-height: 32px; /* 133.333% */
-	text-overflow: ellipsis;
-	overflow: hidden;
-	min-width: 64px;
-	max-width: 160px;
-	margin-left: 15px;
-	margin-right: 12px;
+  color: ${(props) => (props.$color ? "white" : "black")};
+  font-variant-numeric: lining-nums proportional-nums;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 32px; /* 133.333% */
+  text-overflow: ellipsis;
+  overflow: hidden;
+  min-width: 64px;
+  max-width: 160px;
+  margin-left: 15px;
+  margin-right: 12px;
 `;
 
 export const NamePass = styled.div`
@@ -172,10 +172,10 @@ export const ButtonGo = styled.button`
 `;
 
 export const MenuStyle = styled.div`
-	display: flex;
-	position: relative;
-	align-items: center;
-	cursor: pointer;
+  display: flex;
+  position: relative;
+  align-items: center;
+  cursor: pointer;
 `;
 
 export const SpanEx = styled.span`
@@ -189,7 +189,13 @@ export const SpanEx = styled.span`
 
 export const LiEx = styled.li`
   list-style-type: disc;
-  color: black;
+  width: 428px;
+  color: #000;
+  font-variant-numeric: lining-nums proportional-nums;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 32px; /* 133.333% */
 `;
 
 export const ExProgress = styled.div`
@@ -212,3 +218,33 @@ export const Progress = styled.div`
   justify-content: center;
   flex-wrap: wrap;
 `;
+
+export const UlEx = styled.ul`
+  padding-top: 30px;
+  padding-bottom: 52px;
+
+`;
+export const ButtonProgress = styled.button`
+  width: 275px;
+  height: 52px;
+  flex-shrink: 0;
+  border-radius: 46px;
+  background: var(--palette-purple-90, #580ea2);
+  color: #fafafa;
+  font-variant-numeric: lining-nums proportional-nums;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 133.333% */
+  letter-spacing: -0.05px;
+
+  &:hover {
+    background: #2d1f79;
+  }
+
+  &:active {
+    background: #3b29a1;
+  }
+`;
+
+export const ListOfExercises = styled.div``;
