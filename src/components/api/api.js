@@ -208,3 +208,7 @@ export async function getData() {
         console.error('Error updating data:', error);
     }
 } 
+
+export const updateLogin = async () => {
+  
+}

@@ -18,14 +18,15 @@ export const Wrapper = styled.div`
 `;
 
 export const Span = styled.span`
-  padding-top: 38px;
-  color: #000;
-  font-variant-numeric: lining-nums proportional-nums;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 24px; /* 133.333% */
-  letter-spacing: -0.05px;
+	padding-top: 38px;
+	color: #000;
+	font-variant-numeric: lining-nums proportional-nums;
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 24px; /* 133.333% */
+	letter-spacing: -0.05px;
+	width: 284px;
 `;
 
 export const Error = styled.div`
@@ -44,13 +45,14 @@ export const Container = styled.div`
 `;
 
 export const LogInForm = styled.div`
-  width: 366px;
-  height: 401px;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 1);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+	width: 366px;
+	height: 401px;
+	border-radius: 12px;
+	background: rgba(255, 255, 255, 1);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: relative;
 `;
 
 export const LogInFormLogin = styled.div`
@@ -61,6 +63,7 @@ export const LogInFormLogin = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
 `;
 
 export const Logo = styled.img`
@@ -129,4 +132,15 @@ export const SaveButton = styled.button`
   &:focus {
     background: rgba(39, 26, 88, 1);
   }
+`;
+
+export const CloseButton = styled.div`
+	display: flex;
+	cursor: pointer;
+	z-index: 10;
+	flex-direction: row;
+	align-items: flex-start;
+	position: absolute;
+	right: 10px;
+	top: 5px;
 `;
