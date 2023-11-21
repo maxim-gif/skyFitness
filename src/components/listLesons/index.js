@@ -148,7 +148,7 @@ export const ListLessons = ({userLesson}) => {
 												></stop>
 											</linearGradient>
 											<polygon
-												fill='url(#9xVvr7yCTUSTEWJ7qqwo6c_2xlEjUnUxAg1_gr3)'
+												fill='urclo(#9xVvr7yCTUSTEWJ7qqwo6c_2xlEjUnUxAg1_gr3)'
 												points='33.192,28.95 28.95,33.192 24,28.243 28.243,24'
 											></polygon>
 										</svg>
