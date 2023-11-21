@@ -8,6 +8,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { useDispatch } from "react-redux";
 import { signIn } from "../../store/actions/creators";
 import { FormPassword } from "../../forms/changePass";
+import { FormLogin } from "../../forms/changeLogin";
 
 export const ProfilePage = () => {
   const name = window.localStorage.getItem("name");
@@ -19,12 +20,11 @@ export const ProfilePage = () => {
     JSON.parse(window.localStorage.getItem("lesson"))
   );
 
-
+  const [modalIsOpenLogin, setModalIsOpenLogin] = useState(false);
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  const closeModal = () => setModalIsOpen(false);
-
 
   const openModal = () => setModalIsOpen(true);
+  const openModalLogin = () => setModalIsOpenLogin(true);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -85,12 +85,10 @@ export const ProfilePage = () => {
       <S.MyProf>Мой профиль</S.MyProf>
       <S.NamePass>
         <S.SpanNameFull>Логин: {name}</S.SpanNameFull>
-        {/* <S.SpanName>Пароль: {user.password}</S.SpanName> */}
-        <S.ButtonS >Редактировать логин</S.ButtonS>
-
+        <S.ButtonS onClick={openModalLogin}>Редактировать логин</S.ButtonS>
+        {modalIsOpenLogin && <FormLogin />}
         <S.ButtonS onClick={openModal}>Редактировать пароль</S.ButtonS>
-		{modalIsOpen && 
-<FormPassword/>}
+        {modalIsOpen && <FormPassword />}
       </S.NamePass>
       <S.MyCoursesW>Мои курсы</S.MyCoursesW>
       <ListLessons userLesson={userLesson} />
