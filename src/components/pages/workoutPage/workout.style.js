@@ -183,8 +183,9 @@ export const SpanEx = styled.span`
   font-size: 32px;
   font-style: normal;
   font-weight: 400;
-  line-height: 40px;
   color: ;
+  margin-bottom: 40px;
+  text-align: center;
 `;
 
 export const LiEx = styled.li`
@@ -197,6 +198,51 @@ export const LiEx = styled.li`
   font-weight: 400;
   line-height: 32px; /* 133.333% */
 `;
+export const Ex = styled.div`
+  width: 428px;
+  color: #000;
+  font-variant-numeric: lining-nums proportional-nums;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 32px; /* 133.333% */
+`;
+
+  export const ExProg = styled.input`
+  -webkit-appearance: none; 
+  background: transparent; 
+  width: 278px;
+  height: 35px;
+  overflow: hidden;
+  border-radius: 22px;  
+  
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none; 
+    appearance: none;
+    border: 1px solid ${props => props.$colorBorder};
+    height: 1px;
+    width: 1px;
+    background: ${props => props.$colorBorder};
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: -400px 0 0 400px ${props => props.$colorBorder};
+    cursor: default;
+    position: relative;
+    right: 2px;
+}
+  &::-webkit-slider-runnable-track {
+    height: 35px;
+    background: ${props => props.$colorBG};
+    border: 2px solid ${props => props.$colorBorder};
+    border-radius: 22px;
+    cursor: default;
+  }
+  `;
+
+export const ProgressItem = styled.div`
+display: flex;
+`;
 
 export const ExProgress = styled.div`
   padding-top: 75px;
@@ -208,15 +254,20 @@ export const ExProgress = styled.div`
 `;
 
 export const Progress = styled.div`
-  padding-top: 36px;
+  padding: 36px 55px 20px 44px;
   width: 638px;
-  height: 336px;
+  min-height: 336px;
   border-radius: 30px;
   background: #f2f2f2;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  flex-wrap: wrap;
+  flex-direction: column;
+`;
+
+export const ProgressMain = styled.div`
+width: 100%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 26px;
 `;
 
 export const UlEx = styled.ul`

@@ -3,7 +3,7 @@ import * as S from './Profile.styles';
 import { useEffect, useState } from 'react';
 import { MenuProfile } from '../../menuProf/MenuProfile';
 import { ListLessons } from '../../listLesons';
-import { getUserLessons, auth, editPassword } from '../../api/api';
+import { getUserLessons, auth} from '../../api/api';
 import { onAuthStateChanged } from 'firebase/auth';
 import { useDispatch } from 'react-redux';
 import { signIn } from '../../store/actions/creators';

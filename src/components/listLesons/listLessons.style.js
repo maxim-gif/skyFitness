@@ -89,14 +89,29 @@ export const ListOfLessons = styled.div`
 `;
 
 export const Element = styled.div`
+  position: relative;
+  border: ${props => props.$enabled ? `1px solid var(--mint-90, #06b16e)` : `1px solid var(--mint-90, #000000)`};
   border-radius: 26px;
-  border: 1px solid var(--mint-90, #06b16e);
   width: 278px;
   height: 76px;
   display: flex;
   align-items: center;
   justify-content: center;
+  a {
+    color: ${props => props.$enabled ? `#06b16e` : `#000000`};
+
+  }
 `;
+
+export const ElementCheck = styled.div`
+  display: ${props => props.$enabled ? `block` : `none`};
+  width: 27px;
+  height: 25px;
+  position: absolute;
+  top: 12px;
+  right: 12px;
+`;
+
 export const CloseButton = styled.div`
   display: flex;
   cursor: pointer;

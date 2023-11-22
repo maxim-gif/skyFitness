@@ -42,12 +42,15 @@ export const ListLessons = ({userLesson}) => {
   }, []);
 
 
-  const goToLink = (e, lesson) => {
+  const goToLink = (e, lesson, courseKey, index) => {
     e.preventDefault(); 
+	localStorage.setItem('nameCourse', courseKey);
+	localStorage.setItem('indexExercise', index);
     localStorage.setItem('lesson', JSON.stringify(lesson));
     navigate('/workout');
   };
 
+console.log(Object.values(userLesson));
 
 
   return (
@@ -156,11 +159,17 @@ export const ListLessons = ({userLesson}) => {
 									<S.SpanName>Выберите тренировку</S.SpanName>
 									{course &&
 										course.workout.map((lesson, index) => (
-											<S.Element>
+											<S.Element $enabled={userLesson[courseKey].workout[index].readyStatus}>
+												<S.ElementCheck $enabled={userLesson[courseKey].workout[index].readyStatus}>
+													<svg width="28" height="26" viewBox="0 0 28 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<circle cx="12" cy="13.5" r="11.5" stroke="#06B16E"/>
+													<path d="M6 9.81034L11.775 15.5L27 0.5" stroke="#06B16E"/>
+													</svg>
+												</S.ElementCheck>
 												<a
 													href={lesson.link}
 													key={index}
-													onClick={e => goToLink(e, lesson)}
+													onClick={e => goToLink(e, lesson, courseKey, index)}
 												>
 													{lesson.name}
 												</a>

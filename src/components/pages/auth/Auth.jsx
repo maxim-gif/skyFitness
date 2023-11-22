@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import * as S from './Auth.styles';
 import { NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux'
@@ -36,7 +36,9 @@ export const Auth = () => {
 		}
 	  };
 
-		
+	useEffect(() =>{
+		setError(null)
+	},[password, email])
 
 	return (
 		<S.Wrapper>
