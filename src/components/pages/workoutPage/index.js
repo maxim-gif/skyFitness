@@ -1,20 +1,13 @@
 import { NavLink } from 'react-router-dom';
 import * as S from './workout.style';
-import { useSelector } from 'react-redux';
-import { onAuthStateChanged } from 'firebase/auth';
 import { MenuProfile } from '../../menuProf/MenuProfile';
 import { useEffect, useState } from 'react';
-import { getUserLessons, auth, changeStatusExercises} from '../../api/api';
-import { useDispatch } from 'react-redux';
-import { signIn } from '../../store/actions/creators';
+import { changeStatusExercises} from '../../api/api';
 
-export const WorkOut = () => {
 
-	const dispatch = useDispatch();
+export const WorkOut = ({userData}) => {
 
  	const [color, setColor] = useState();
-
-	const name = localStorage.getItem('name');
 
 	const [isOpen, setIsOpen] = useState(false);
 
@@ -26,6 +19,12 @@ export const WorkOut = () => {
 	const indexExercise = window.localStorage.getItem('indexExercise');
 	const nameCourse = window.localStorage.getItem('nameCourse');
 	const lesson = storedLesson ? JSON.parse(storedLesson) : null;
+
+	useEffect(() => {
+		if (userData) {
+			setUserLesson(userData.courses);
+		}
+	}, [userData]);
 
 	const renderExercises = () => {
 		if (lesson.exercises && lesson.exercises.length > 0) {
@@ -68,25 +67,6 @@ export const WorkOut = () => {
 			return '';
 		}
 	};
-
-	useEffect(() => {
-		const unsubscribe = onAuthStateChanged(auth, user => {
-			if (user) {
-				(async () => {
-					try {
-						const userData = await getUserLessons();
-						dispatch(signIn(userData));
-						setUserLesson(userData.courses);
-					} catch (error) {
-						console.log(error);
-					}
-				})();
-			} else {
-			}
-		});
-
-		return () => unsubscribe();
-	}, []);
 
 	useEffect(() => {
 		setColor(false);
@@ -161,7 +141,7 @@ export const WorkOut = () => {
 							fill={color ? 'rgb(105, 105, 105)' : '#D9D9D9'}
 						/>
 					</svg>
-					<S.SpanName $color={color}>{name}</S.SpanName>
+					{userData && <S.SpanName $color={color}>{userData.email}</S.SpanName>}
 					<MenuProfile color={color} isOpen={isOpen} />
 				</S.MenuStyle>
 			</S.LogoHeader>

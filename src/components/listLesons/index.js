@@ -50,8 +50,6 @@ export const ListLessons = ({userLesson}) => {
     navigate('/workout');
   };
 
-console.log(Object.values(userLesson));
-
 
   return (
 		<S.MyCourses>

@@ -4,7 +4,7 @@ import { MainArray } from './MainArray';
 import { NavLink } from 'react-router-dom';
 import { MenuProfile } from '../../menuProf/MenuProfile';
 
-export const Main = () => {
+export const Main = ({name}) => {
 	function goTop() {
 		if (window.pageYOffset > 0) {
 			window.scrollBy(0, -10);
@@ -18,7 +18,7 @@ export const Main = () => {
 
 	const toggleOpen = () => setIsOpen(!isOpen);
 
-	const name = localStorage.getItem('name');
+	
 
 	useEffect(() => {
 		setColor(true);
