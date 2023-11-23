@@ -1,28 +1,27 @@
 import * as S from './MenuProfile.styles';
 import { NavLink } from 'react-router-dom';
-import { useDispatch } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
-import { signOut } from '../store/actions/creators'
-import { exit } from '../api/api'
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { signOut } from '../store/actions/creators';
+import { exit } from '../api/api';
 
-export const MenuProfile = ({ isOpen, color }) => {
-
-	const navigate = useNavigate()
-	const dispatch = useDispatch()
+export const MenuProfile = ({ isOpen, color, setUserData }) => {
+	const navigate = useNavigate();
+	const dispatch = useDispatch();
 
 	const handleExit = async () => {
 		try {
-			exit()
+			exit();
 			dispatch(signOut());
-			navigate('/')
+			navigate('/auth');
 		} catch (error) {
-			
+			console.log(error);
 		}
-	  };
+	};
 
 	return (
-		<S.Dropdown >
-			<S.Pointer >
+		<S.Dropdown>
+			<S.Pointer>
 				<svg
 					xmlns='http://www.w3.org/2000/svg'
 					width='14'
@@ -37,8 +36,8 @@ export const MenuProfile = ({ isOpen, color }) => {
 					/>
 				</svg>
 			</S.Pointer>
-			<S.DropdownContent  className={isOpen ? 'open' : ''}>
-				<NavLink  to='/'>
+			<S.DropdownContent className={isOpen ? 'open' : ''}>
+				<NavLink to='/'>
 					<S.EachDropdownContent $color={color}>
 						На главную
 					</S.EachDropdownContent>
@@ -46,11 +45,10 @@ export const MenuProfile = ({ isOpen, color }) => {
 				<NavLink to='/profile'>
 					<S.EachDropdownContent $color={color}>Профиль</S.EachDropdownContent>
 				</NavLink>
-				<NavLink  to='/auth'>
-					<S.EachDropdownContent $color={color} onClick={handleExit}>
-						Выйти
-					</S.EachDropdownContent>
-				</NavLink>
+
+				<S.EachDropdownContent $color={color} onClick={() => {handleExit(); setUserData(null)}}>
+					Выйти
+				</S.EachDropdownContent>
 			</S.DropdownContent>
 		</S.Dropdown>
 	);

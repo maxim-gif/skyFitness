@@ -5,9 +5,8 @@ import { useEffect, useState } from 'react';
 import { changeStatusExercises} from '../../api/api';
 
 
-export const WorkOut = ({userData}) => {
-
- 	const [color, setColor] = useState();
+export const WorkOut = ({ userData, setUserData }) => {
+	const [color, setColor] = useState();
 
 	const [isOpen, setIsOpen] = useState(false);
 
@@ -28,7 +27,7 @@ export const WorkOut = ({userData}) => {
 
 	const renderExercises = () => {
 		if (lesson.exercises && lesson.exercises.length > 0) {
-			return  lesson.exercises.map((exercise, index) => (
+			return lesson.exercises.map((exercise, index) => (
 				<S.LiEx key={index}>{exercise}</S.LiEx>
 			));
 		} else {
@@ -36,32 +35,35 @@ export const WorkOut = ({userData}) => {
 		}
 	};
 
-
 	const colorMapping = [
-		{colorBorder:"#565EEF", colorBG:"#EDECFF"},
-		{colorBorder:"#FF6D00", colorBG:"#FFF2E0"},
-		{colorBorder:"#9A48F1", colorBG:"#F9EBFF"},
-		{colorBorder:"#FFD700", colorBG:"#FFFFE0"},
-	]
+		{ colorBorder: '#565EEF', colorBG: '#EDECFF' },
+		{ colorBorder: '#FF6D00', colorBG: '#FFF2E0' },
+		{ colorBorder: '#9A48F1', colorBG: '#F9EBFF' },
+		{ colorBorder: '#FFD700', colorBG: '#FFFFE0' },
+	];
 
-	  
 	const renderExercisesProgress = () => {
 		const cfr = /\d+/;
 		if (lesson.exercises && lesson.exercises.length > 0) {
-			return  lesson.exercises.map((exercise, index) => (
+			return lesson.exercises.map((exercise, index) => (
 				<S.ProgressItem>
-					<S.Ex key={index}>{exercise.slice(0, exercise.indexOf("("))}</S.Ex>
-					<S.ExProg  $colorBorder={colorMapping[index].colorBorder}  $colorBG={colorMapping[index].colorBG}                     
-						type="range"
+					<S.Ex key={index}>{exercise.slice(0, exercise.indexOf('('))}</S.Ex>
+					<S.ExProg
+						$colorBorder={colorMapping[index].colorBorder}
+						$colorBG={colorMapping[index].colorBG}
+						type='range'
 						min={0}
 						max={exercise.match(cfr)[0]}
-						value={userLesson[nameCourse].workout[indexExercise].exercisesCounter[index]}
+						value={
+							userLesson[nameCourse].workout[indexExercise].exercisesCounter[
+								index
+							]
+						}
 						step={1}
-						$color="#ffffff"
-						disabled>
-					</S.ExProg>
+						$color='#ffffff'
+						disabled
+					></S.ExProg>
 				</S.ProgressItem>
-
 			));
 		} else {
 			return '';
@@ -78,10 +80,7 @@ export const WorkOut = ({userData}) => {
 		}
 	}
 
-
-
 	useEffect(() => {
-
 		var regex = /embed\/(.+)/;
 		var videoId = lesson.link.match(regex)[1];
 
@@ -91,34 +90,34 @@ export const WorkOut = ({userData}) => {
 		firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 		let player;
 
-	let checkYT = setInterval(() => {
-		if (window.YT){
-			clearInterval(checkYT);
-			window.YT.ready(function() {
-				player = new window.YT.Player('player', {
-					height: '639',
-					width: '1160',
-					videoId: videoId,
-					playerVars: {
-						origin: window.location.origin,
-					  },
-					events: {
-					  'onStateChange': onPlayerStateChange
-					}
-			 	});
-			})
-		}
-	}, 100);
+		let checkYT = setInterval(() => {
+			if (window.YT) {
+				clearInterval(checkYT);
+				window.YT.ready(function () {
+					player = new window.YT.Player('player', {
+						height: '639',
+						width: '1160',
+						videoId: videoId,
+						playerVars: {
+							origin: window.location.origin,
+						},
+						events: {
+							onStateChange: onPlayerStateChange,
+						},
+					});
+				});
+			}
+		}, 100);
 
 		function onPlayerStateChange(event) {
-		  if (event.data === window.YT.PlayerState.ENDED) {
-			if (nameCourse === "dancefitness" || nameCourse === "stepaerobics") {
-				changeStatusExercises(nameCourse, indexExercise)
-				console.log("Video Ended");
+			if (event.data === window.YT.PlayerState.ENDED) {
+				if (nameCourse === 'dancefitness' || nameCourse === 'stepaerobics') {
+					changeStatusExercises(nameCourse, indexExercise);
+					console.log('Video Ended');
+				}
 			}
-		  }
 		}
-	  }, []);
+	}, []);
 
 	return (
 		<S.Wrapper>
@@ -126,27 +125,37 @@ export const WorkOut = ({userData}) => {
 				<NavLink to='/'>
 					<S.Logo src='/logo2.png'></S.Logo>
 				</NavLink>
-				<S.MenuStyle onMouseLeave={mouseOut} onClick={toggleOpen}>
-					<svg
-						xmlns='http://www.w3.org/2000/svg'
-						width='50'
-						height='50'
-						viewBox='0 0 50 50'
-						fill='none'
-					>
-						<circle
-							cx='25'
-							cy='25'
-							r='25'
-							fill={color ? 'rgb(105, 105, 105)' : '#D9D9D9'}
+				{userData ? (
+					<S.MenuStyle onMouseLeave={mouseOut} onClick={toggleOpen}>
+						<svg
+							xmlns='http://www.w3.org/2000/svg'
+							width='50'
+							height='50'
+							viewBox='0 0 50 50'
+							fill='none'
+						>
+							<circle
+								cx='25'
+								cy='25'
+								r='25'
+								fill={color ? 'rgb(105, 105, 105)' : '#D9D9D9'}
+							/>
+						</svg>
+						<S.SpanName $color={color}>{userData && userData.email}</S.SpanName>
+						<MenuProfile
+							color={color}
+							isOpen={isOpen}
+							setUserData={setUserData}
 						/>
-					</svg>
-					{userData && <S.SpanName $color={color}>{userData.email}</S.SpanName>}
-					<MenuProfile color={color} isOpen={isOpen} />
-				</S.MenuStyle>
+					</S.MenuStyle>
+				) : (
+					<NavLink to='/auth'>
+						<S.AuthButton>Войти</S.AuthButton>
+					</NavLink>
+				)}
 			</S.LogoHeader>
 			<S.MyProf>{lesson.name}</S.MyProf>
-			<div id="player"></div>
+			<div id='player'></div>
 			<S.ExProgress>
 				<S.ListOfExercises>
 					<S.SpanEx>Упражнения:</S.SpanEx>
@@ -154,12 +163,12 @@ export const WorkOut = ({userData}) => {
 					<S.ButtonProgress>Заполнить свой прогресс</S.ButtonProgress>
 				</S.ListOfExercises>
 				<S.Progress>
-					<S.SpanEx>Мой прогресс по тренировке {Number(indexExercise) + Number(1)}:</S.SpanEx>
-					{userLesson && 
-						<S.ProgressMain>
-						{ renderExercisesProgress()}
-						</S.ProgressMain>
-					}
+					<S.SpanEx>
+						Мой прогресс по тренировке {Number(indexExercise) + Number(1)}:
+					</S.SpanEx>
+					{userLesson && (
+						<S.ProgressMain>{renderExercisesProgress()}</S.ProgressMain>
+					)}
 				</S.Progress>
 			</S.ExProgress>
 		</S.Wrapper>

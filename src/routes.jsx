@@ -26,32 +26,49 @@ export const AppRoutes = () => {
 					try {
 						const userData = await getUserLessons();
 						dispatch(signIn(userData));
-						setUserData(userData)
+						setUserData(userData);
 					} catch (error) {
 						console.log(error);
 					}
 				})();
-			} else {
 			}
 		});
 
 		return () => unsubscribe();
-	}, []);
+	}, [dispatch]);
+
+	console.log(userData)
 
 	return (
 		<BrowserRouter>
 			<Routes>
-				<Route path='/' element={<Main name={userData ? userData.email : 'Загрузка...'}/>} />
+				<Route
+					path='/'
+					element={<Main userData={userData} setUserData={setUserData} />}
+				/>
 
-				<Route path='/course/:id' element={<CoursesPage name={userData ? userData.email : 'Загрузка...'}/>} />
+				<Route
+					path='/course/:id'
+					element={
+						<CoursesPage userData={userData} setUserData={setUserData} />
+					}
+				/>
 
 				<Route path='/auth' element={<Auth />} />
 
 				<Route path='/reg' element={<Reg />} />
 
-				<Route path='/profile' element={<ProfilePage userData={userData}/>} />
+				<Route
+					path='/profile'
+					element={
+						<ProfilePage userData={userData} setUserData={setUserData} />
+					}
+				/>
 
-				<Route path='/workout' element={<WorkOut userData={userData}/>} />
+				<Route
+					path='/workout'
+					element={<WorkOut userData={userData} setUserData={setUserData} />}
+				/>
 
 				<Route path='*' element={<NotFoundPage />} />
 			</Routes>

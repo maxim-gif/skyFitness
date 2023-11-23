@@ -4,7 +4,7 @@ import { MainArray } from './MainArray';
 import { NavLink } from 'react-router-dom';
 import { MenuProfile } from '../../menuProf/MenuProfile';
 
-export const Main = ({name}) => {
+export const Main = ({ userData, setUserData }) => {
 	function goTop() {
 		if (window.pageYOffset > 0) {
 			window.scrollBy(0, -10);
@@ -18,14 +18,12 @@ export const Main = ({name}) => {
 
 	const toggleOpen = () => setIsOpen(!isOpen);
 
-	
-
 	useEffect(() => {
 		setColor(true);
 	}, []);
 
 	function mouseOut() {
-		if(isOpen) {
+		if (isOpen) {
 			toggleOpen();
 		}
 	}
@@ -35,7 +33,7 @@ export const Main = ({name}) => {
 			<S.Header>
 				<S.LogoHeader>
 					<S.Logo src='/logo.png' />
-					{name ? (
+					{userData ? (
 						<S.MenuStyle onMouseLeave={mouseOut} onClick={toggleOpen}>
 							<svg
 								xmlns='http://www.w3.org/2000/svg'
@@ -51,9 +49,11 @@ export const Main = ({name}) => {
 									fill={color ? 'rgb(105, 105, 105)' : '#D9D9D9'}
 								/>
 							</svg>
-							<S.SpanName $color={color}>{name}</S.SpanName>
+							<S.SpanName $color={color}>
+								{userData && userData.email}
+							</S.SpanName>
 							<MenuProfile
-								
+								setUserData={setUserData}
 								color={color}
 								isOpen={isOpen}
 							/>
