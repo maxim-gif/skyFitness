@@ -44,15 +44,15 @@ export async function getData() {
           bodyflex:{
             statusBay: false,
             workout:{
-              firstDay:{
+              0:{
                 readyStatus: false,
                 exercisesCounter: [0,0,0]
               },
-              secondDay:{
+              1:{
                 readyStatus: false,
                 exercisesCounter: [0,0,0]
               },
-              thirdDay:{
+              2:{
                 readyStatus: false,
                 exercisesCounter: [0,0,0]
               }
@@ -60,53 +60,53 @@ export async function getData() {
           },
           dancefitness:{
             statusBay: false,
-            workoutStatus:{
-              firstDay:{
+            workout:{
+              0:{
                 readyStatus: false,
               },
-              secondDay:{
+              1:{
                 readyStatus: false,
               },
-              thirdDay:{
+              2:{
                 readyStatus: false,
               },
-              fourthDay:{
+              3:{
                 readyStatus: false,
               },
-              fifthDay:{
+              4:{
                 readyStatus: false,
               }
             }
           },
           stepaerobics:{
             statusBay: false,
-            workoutStatus:{
-              firstDay:{
+            workout:{
+              0:{
                 readyStatus: false,
               },
-              secondDay:{
+              1:{
                 readyStatus: false,
               },
-              thirdDay:{
+              2:{
                 readyStatus: false,
               },
-              fourthDay:{
+              3:{
                 readyStatus: false,
               }
             }
           },
           stretching:{
             statusBay: false,
-            workoutStatus:{
-              firstDay:{
+            workout:{
+              0:{
                 readyStatus: false,
                 exercisesCounter: [0,0,0,0]
               },
-              secondDay:{
+              1:{
                 readyStatus: false,
                 exercisesCounter: [0,0,0]
               },
-              thirdDay:{
+              2:{
                 readyStatus: false,
                 exercisesCounter: [0,0,0]
               }
@@ -114,24 +114,24 @@ export async function getData() {
           },
           yoga:{
             statusBay: false,
-            workoutStatus:{
-              firstDay:{
+            workout:{
+              0:{
                 readyStatus: false,
                 exercisesCounter: [0]
               },
-              secondDay:{
+              1:{
                 readyStatus: false,
                 exercisesCounter: [0,0,0]
               },
-              thirdDay:{
-                readyStatus: false,
-                exercisesCounter: [0,0,0,0,0]
-              },
-              fourthDay:{
+              2:{
                 readyStatus: false,
                 exercisesCounter: [0,0,0,0]
               },
-              fifthDay:{
+              3:{
+                readyStatus: false,
+                exercisesCounter: [0,0,0,0]
+              },
+              4:{
                 readyStatus: false,
                 exercisesCounter: [0,0,0]
               }
@@ -148,6 +148,15 @@ export async function getData() {
     }
   }
 
+  export const editPassword = async (newPassword) => {
+    try {
+      const user = auth.currentUser;
+      await updatePassword(user, newPassword)
+      console.log("edit password");
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   export const enter = async (email, password) => {
     try {
@@ -195,7 +204,6 @@ export async function getData() {
   }
 
   export const bayCourse = async (courseName) => {
-    console.log("bay");
     const user = auth.currentUser;
     const courseRef = ref(db, 'users/' + user.uid + '/courses/' + courseName);
     
@@ -207,6 +215,21 @@ export async function getData() {
     } catch(error) {
         console.error('Error updating data:', error);
     }
+} 
+
+export const changeStatusExercises = async (courseName, numberExercises) => {
+  console.log("change");
+  const user = auth.currentUser;
+  const courseRef = ref(db, 'users/' + user.uid + '/courses/' + courseName + '/workout/' + numberExercises);
+  
+  try {
+      await update(courseRef, {
+        readyStatus: true,
+      });
+      console.log('Status purchased successfully');
+  } catch(error) {
+      console.error('Error updating data:', error);
+  }
 } 
 
 export const updateLogin = async () => {

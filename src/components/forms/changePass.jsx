@@ -1,21 +1,28 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import * as S from "./forms.style"
+import { editPassword, enter, auth } from "../api/api";
+import { onAuthStateChanged } from 'firebase/auth';
 
 export const FormPassword = ({ closeModal }) => {
 	const [password, setPassword] = useState('');
-	const [confirmPassword, setConfirmPassword] = useState('');
+	const [repeatPassword, setRepeatPassword] = useState('');
 	const [error, setError] = useState(null);
-
-	const handleSubmit = () => {
-		if (password !== confirmPassword) {
+	
+	const handleSubmit =  async () => {
+		if (password !== repeatPassword) {
 			setError('Пароли не совпадают');
 		} else if (password === '') {
 			setError('Пароль не может быть пустым');
-		} else {
-			setError(null);
-			window.location.reload();
+		} 
+		try {
+			await editPassword(password)
+			await enter(auth.currentUser.email, password)
+			closeModal()
+		} catch (error) {
+			setError(error);
 		}
 	};
+
 
 	return (
 		<S.Wrapper>
@@ -32,8 +39,8 @@ export const FormPassword = ({ closeModal }) => {
 					<S.PasswordInput
 						type='password'
 						placeholder='Подтвердите Пароль'
-						value={confirmPassword}
-						onChange={e => setConfirmPassword(e.target.value)}
+						value={repeatPassword}
+						onChange={e => setRepeatPassword(e.target.value)}
 					/>
 					{error && <S.Error>{error}</S.Error>}
 					<S.SaveButton onClick={handleSubmit}>Сохранить</S.SaveButton>

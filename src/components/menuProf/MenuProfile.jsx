@@ -14,8 +14,6 @@ export const MenuProfile = ({ isOpen, color }) => {
 		try {
 			exit()
 			dispatch(signOut());
-			window.localStorage.removeItem("name")
-			window.localStorage.removeItem("lesson")
 			navigate('/')
 		} catch (error) {
 			

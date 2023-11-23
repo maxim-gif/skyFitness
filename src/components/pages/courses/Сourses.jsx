@@ -15,8 +15,8 @@ import hand from "../../../img/coursesImage/hand.svg";
 import { getData } from "../../api/api";
 import { MenuProfile } from "../../menuProf/MenuProfile";
 
-export const CoursesPage = (props) => {
-  const name = window.localStorage.getItem("name");
+export const CoursesPage = ({name}) => {
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -36,8 +36,6 @@ export const CoursesPage = (props) => {
   const openModal = () => setModalIsOpen(true);
 
   const toggleOpen = () => setIsOpen(!isOpen);
-
-  console.log(name);
 
   function mouseOut() {
     if (isOpen) {
