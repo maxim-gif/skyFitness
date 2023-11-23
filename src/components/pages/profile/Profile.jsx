@@ -6,8 +6,7 @@ import { ListLessons } from '../../listLesons';
 import { FormPassword } from '../../forms/changePass';
 import { FormLogin } from '../../forms/changeLogin';
 
-export const ProfilePage = ({userData}) => {
-
+export const ProfilePage = ({ userData, setUserData }) => {
 	const [color, setColor] = useState();
 	const [isOpen, setIsOpen] = useState(false);
 	const [userLesson, setUserLesson] = useState(null);
@@ -43,28 +42,40 @@ export const ProfilePage = ({userData}) => {
 					<S.Logo src='/logo2.png' />
 				</NavLink>
 
-				<S.MenuStyle onMouseLeave={mouseOut} onClick={toggleOpen}>
-					<svg
-						xmlns='http://www.w3.org/2000/svg'
-						width='50'
-						height='50'
-						viewBox='0 0 50 50'
-						fill='none'
-					>
-						<circle
-							cx='25'
-							cy='25'
-							r='25'
-							fill={color ? 'rgb(105, 105, 105)' : '#D9D9D9'}
+				{userData ? (
+					<S.MenuStyle onMouseLeave={mouseOut} onClick={toggleOpen}>
+						<svg
+							xmlns='http://www.w3.org/2000/svg'
+							width='50'
+							height='50'
+							viewBox='0 0 50 50'
+							fill='none'
+						>
+							<circle
+								cx='25'
+								cy='25'
+								r='25'
+								fill={color ? 'rgb(105, 105, 105)' : '#D9D9D9'}
+							/>
+						</svg>
+						<S.SpanName $color={color}>{userData && userData.email}</S.SpanName>
+						<MenuProfile
+							color={color}
+							isOpen={isOpen}
+							setUserData={setUserData}
 						/>
-					</svg>
-					{userData ? <S.SpanName $color={color}>{userData.email}</S.SpanName>: <S.SpanName $color={color}>Загрузка</S.SpanName>}
-					<MenuProfile color={color} isOpen={isOpen} />
-				</S.MenuStyle>
+					</S.MenuStyle>
+				) : (
+					<NavLink to='/auth'>
+						<S.AuthButton>Войти</S.AuthButton>
+					</NavLink>
+				)}
 			</S.LogoHeader>
 			<S.MyProf>Мой профиль</S.MyProf>
 			<S.NamePass>
-				<S.SpanNameFull>Логин: {userData ? userData.email: "Загрузка"}</S.SpanNameFull>
+				<S.SpanNameFull>
+					Логин: {userData ? userData.email : 'Загрузка'}
+				</S.SpanNameFull>
 				<S.ButtonS onClick={openModalLogin}>Редактировать логин</S.ButtonS>
 				{modalIsOpenLogin && <FormLogin closeModalLogin={closeModalLogin} />}
 				<S.ButtonS onClick={openModal}>Редактировать пароль</S.ButtonS>
