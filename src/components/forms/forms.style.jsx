@@ -57,7 +57,7 @@ export const LogInForm = styled.div`
 
 export const LogInFormLogin = styled.div`
   width: 366px;
-  height: 331px;
+  height: auto;
   border-radius: 12px;
   background: rgba(255, 255, 255, 1);
   display: flex;
@@ -126,6 +126,7 @@ export const SaveButton = styled.button`
   font-weight: 400;
   line-height: 24px;
   letter-spacing: -0.05px;
+  margin-bottom: 30px;
   &:hover {
     background: rgba(63, 0, 125, 1);
   }
