@@ -47,8 +47,6 @@ export const AppRoutes = () => {
   if (loading) {
 	return (<LoadingSpinner />);
   }
-  
-  console.log(userData);
 
   return (
     <BrowserRouter>

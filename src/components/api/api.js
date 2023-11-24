@@ -18,9 +18,6 @@ export const auth = getAuth(appFitnes);
 const db = getDatabase(appFitnes);
 
 
-const dataUrl = "https://skyfitness-f3ebe-default-rtdb.europe-west1.firebasedatabase.app/courses.json"
-
-
 
 export async function getData() {
     const response = await fetch("https://skyfitness-f3ebe-default-rtdb.europe-west1.firebasedatabase.app/courses.json");
