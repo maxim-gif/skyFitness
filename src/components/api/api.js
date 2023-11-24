@@ -158,19 +158,21 @@ export async function getData() {
     }
   }
 
-export const editEmail = async (newEmail) => {
-  try {
-    const user = auth.currentUser;
-    if (user) {
-      await updateEmail(user, newEmail);
-      console.log("Email updated successfully");
-    } else {
-      console.log("No user signed in");
+  export const editEmail = async (newEmail) => {
+    try {
+      const user = auth.currentUser;
+      if (user) {
+        await updateEmail(user, newEmail).then(() => {
+          sendEmailVerification(user)
+        });
+        console.log("Email updated and verification email sent successfully");
+      } else {
+        console.log("No user signed in");
+      }
+    } catch (error) {
+      console.error("Error updating email:", error);
     }
-  } catch (error) {
-    console.error("Error updating email:", error);
   }
-}
 
   export const enter = async (email, password) => {
     try {

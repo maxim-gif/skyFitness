@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { auth, enter } from "../api/api";
-import { editEmail } from "../store/actions/creators";
+import { auth, editEmail, enter } from "../api/api";
+
 import * as S from "./forms.style";
 
 export const FormLogin = ({ closeModalLogin }) => {
@@ -12,19 +12,20 @@ export const FormLogin = ({ closeModalLogin }) => {
   };
 
   const handleSubmit = async () => {
-	setError(''); // Обнуляет предыдущую ошибку перед началом новой операции
+	setError('');
 	if (loginName === "") {
 	  setError("Логин не может быть пустым");
-	  return; // Не продолжайте выполнение, если логин пуст
+	  return; 
 	}
 	try {
-	  await editEmail(loginName); // Дождитесь завершения асинхронной операции
-	  closeModalLogin(); // Закрывает модальное окно после успешного завершения
+	  await editEmail(loginName);
+	//   await enter(loginName)
+	  closeModalLogin();
 	} catch (error) {
-	  setError(error.message); // Предполагая, что error объект имеет свойство message
+	  setError(error.message);
 	}
   };
-console.log(loginName);
+
   return (
     <S.Wrapper>
       <S.Container>
