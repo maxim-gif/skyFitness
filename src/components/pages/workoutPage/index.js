@@ -2,8 +2,7 @@ import { NavLink } from 'react-router-dom';
 import * as S from './workout.style';
 import { MenuProfile } from '../../menuProf/MenuProfile';
 import { useEffect, useState } from 'react';
-import { changeStatusExercises} from '../../api/api';
-
+import { changeStatusExercises } from '../../api/api';
 
 export const WorkOut = ({ userData, setUserData }) => {
 	const [color, setColor] = useState();
@@ -13,6 +12,12 @@ export const WorkOut = ({ userData, setUserData }) => {
 	const toggleOpen = () => setIsOpen(!isOpen);
 
 	const [userLesson, setUserLesson] = useState(null);
+
+	const [activeModal, setActiveModal] = useState(null);
+
+	const openModal = () => setActiveModal(true);
+
+	const closeModal = () => setActiveModal(null);
 
 	const storedLesson = window.localStorage.getItem('lesson');
 	const indexExercise = window.localStorage.getItem('indexExercise');
@@ -69,6 +74,8 @@ export const WorkOut = ({ userData, setUserData }) => {
 			return '';
 		}
 	};
+
+	console.log(lesson.exercises);
 
 	useEffect(() => {
 		setColor(false);
@@ -160,7 +167,115 @@ export const WorkOut = ({ userData, setUserData }) => {
 				<S.ListOfExercises>
 					<S.SpanEx>Упражнения:</S.SpanEx>
 					<S.UlEx>{renderExercises()}</S.UlEx>
-					<S.ButtonProgress>Заполнить свой прогресс</S.ButtonProgress>
+					<S.ButtonProgress onClick={() => openModal()}>
+						Заполнить свой прогресс
+					</S.ButtonProgress>
+
+					{activeModal && (
+						<S.BackModal>
+							<S.ListOfLessons>
+								<S.CloseButton onClick={closeModal}>
+									<svg
+										xmlns='http://www.w3.org/2000/svg'
+										x='0px'
+										y='0px'
+										width='30'
+										height='30'
+										viewBox='0 0 48 48'
+									>
+										<linearGradient
+											id='9xVvr7yCTUSTEWJ7qqwo6a_2xlEjUnUxAg1_gr1'
+											x1='1.956'
+											x2='54.829'
+											y1='1.956'
+											y2='54.829'
+											gradientUnits='userSpaceOnUse'
+										>
+											<stop
+												offset='0'
+												stopColor='#262626'
+												stopOpacity='0'
+											></stop>
+											<stop
+												offset='1'
+												stopColor='#262626'
+												stopOpacity='.8'
+											></stop>
+										</linearGradient>
+										<circle
+											cx='24'
+											cy='24'
+											r='20'
+											fill='url(#9xVvr7yCTUSTEWJ7qqwo6a_2xlEjUnUxAg1_gr1)'
+										></circle>
+										<linearGradient
+											id='9xVvr7yCTUSTEWJ7qqwo6b_2xlEjUnUxAg1_gr2'
+											x1='740.406'
+											x2='787.897'
+											y1='-1145.624'
+											y2='-1158.349'
+											gradientTransform='translate(-743.775 1175.631)'
+											gradientUnits='userSpaceOnUse'
+										>
+											<stop
+												offset='0'
+												stopColor='#262626'
+												stopOpacity='0'
+											></stop>
+											<stop
+												offset='1'
+												stopColor='#262626'
+												stopOpacity='.8'
+											></stop>
+										</linearGradient>
+										<polygon
+											fill='url(#9xVvr7yCTUSTEWJ7qqwo6b_2xlEjUnUxAg1_gr2)'
+											points='33.192,19.05 19.05,33.192 14.808,28.95 19.757,24 14.808,19.05 19.05,14.808 24,19.757 28.95,14.808'
+										></polygon>
+										<linearGradient
+											id='9xVvr7yCTUSTEWJ7qqwo6c_2xlEjUnUxAg1_gr3'
+											x1='778.531'
+											x2='767.699'
+											y1='-1138.238'
+											y2='-1153.707'
+											gradientTransform='translate(-743.775 1175.631)'
+											gradientUnits='userSpaceOnUse'
+										>
+											<stop
+												offset='0'
+												stopColor='#262626'
+												stopOpacity='0'
+											></stop>
+											<stop
+												offset='1'
+												stopColor='#262626'
+												stopOpacity='.8'
+											></stop>
+										</linearGradient>
+										<polygon
+											fill='urclo(#9xVvr7yCTUSTEWJ7qqwo6c_2xlEjUnUxAg1_gr3)'
+											points='33.192,28.95 28.95,33.192 24,28.243 28.243,24'
+										></polygon>
+									</svg>
+								</S.CloseButton>
+								<S.ExerciseSpanName>Мой прогресс</S.ExerciseSpanName>
+								{lesson.exercises &&
+									lesson.exercises.map((exercise) => {
+										exercise = exercise.replace(/.\(.+\)/, '').toLowerCase();
+
+										return (
+											<S.ExerciseForm >
+												<S.ExerciseQuestion >
+													Сколько раз вы сделали {exercise}?
+												</S.ExerciseQuestion>
+												<S.ExerciseInput placeholder='Введите значение'></S.ExerciseInput>
+											</S.ExerciseForm>
+										);
+									})}
+								<S.ExerciseButton>Отправить</S.ExerciseButton>
+							</S.ListOfLessons>
+						</S.BackModal>
+					)}
 				</S.ListOfExercises>
 				<S.Progress>
 					<S.SpanEx>
