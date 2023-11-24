@@ -1,65 +1,66 @@
-import { useEffect, useState } from "react";
-import { getData } from "../api/api";
-import * as S from "./listLessons.style";
-import { useNavigate } from "react-router";
+import { useEffect, useState } from 'react';
+import { getData } from '../api/api';
+import * as S from './listLessons.style';
+import { useNavigate } from 'react-router';
 
-export const ListLessons = ({userLesson}) => {
-  const [values, setValues] = useState([]);
+export const ListLessons = ({ userLesson }) => {
+	const [values, setValues] = useState([]);
 
-  const navigate = useNavigate();
-  const [activeModal, setActiveModal] = useState(null);
-  
-  const closeModal = () => setActiveModal(null);
-  
-  const openModal = (courseKey) => setActiveModal(courseKey);
+	const navigate = useNavigate();
+	const [activeModal, setActiveModal] = useState(null);
 
-  const courseNameMapping = {
-    bodyflex: "./bodyflex.svg",
-    dancefitness: "./dancefitness.svg",
-    stepaerobics: "./stepaerobics.svg",
-    stretching: "./stretching.svg",
-    yoga: "./yoga.svg",
-  };
+	const closeModal = () => setActiveModal(null);
 
-  const courseTitleMapping = {
-    bodyflex: "Бодифлекс",
-    dancefitness: "Танцевальный фитнес",
-    stepaerobics: "Степ-аэробика",
-    stretching: "Стретчинг",
-    yoga: "Йога",
-  };
+	const openModal = courseKey => setActiveModal(courseKey);
 
-  useEffect(() => {
-    getData()
-      .then((data) => {
-        const vals = Object.entries(data).map(([courseName, courseData]) => ({
-          ...courseData,
-          _id: courseName,
-        }));
-        setValues(vals);
-      })
-      .catch((error) => console.error(error));
-  }, []);
+	const courseNameMapping = {
+		bodyflex: './bodyflex.svg',
+		dancefitness: './dancefitness.svg',
+		stepaerobics: './stepaerobics.svg',
+		stretching: './stretching.svg',
+		yoga: './yoga.svg',
+	};
 
+	const courseTitleMapping = {
+		bodyflex: 'Бодифлекс',
+		dancefitness: 'Танцевальный фитнес',
+		stepaerobics: 'Степ-аэробика',
+		stretching: 'Стретчинг',
+		yoga: 'Йога',
+	};
 
-  const goToLink = (e, lesson, courseKey, index) => {
-    e.preventDefault(); 
-	localStorage.setItem('nameCourse', courseKey);
-	localStorage.setItem('indexExercise', index);
-    localStorage.setItem('lesson', JSON.stringify(lesson));
-    navigate('/workout');
-  };
+	useEffect(() => {
+		getData()
+			.then(data => {
+				const vals = Object.entries(data).map(([courseName, courseData]) => ({
+					...courseData,
+					_id: courseName,
+				}));
+				setValues(vals);
+			})
+			.catch(error => console.error(error));
+	}, []);
 
+	const goToLink = (e, lesson, courseKey, index) => {
+		e.preventDefault();
+		localStorage.setItem('nameCourse', courseKey);
+		localStorage.setItem('indexExercise', index);
+		localStorage.setItem('lesson', JSON.stringify(lesson));
+		navigate('/workout');
+	};
 
-  return (
+	return (
 		<S.MyCourses>
-      {Object.keys(userLesson).map((courseKey) => {
-        const courseSvg = courseNameMapping[courseKey];
-        const courseTitle = courseTitleMapping[courseKey];
-        const course = values.find((value) => value._id === courseKey);
-
-        return (
-          <S.CoursesNameAndSVG key={courseKey} $enabled={userLesson[courseKey].statusBay}> 
+			{Object.keys(userLesson).map(courseKey => {
+				const courseSvg = courseNameMapping[courseKey];
+				const courseTitle = courseTitleMapping[courseKey];
+				const course = values.find(value => value._id === courseKey);
+				
+				return (
+					<S.CoursesNameAndSVG
+						key={courseKey}
+						$enabled={userLesson[courseKey].statusBay}
+					>
 						<S.NameCourse>{courseTitle}</S.NameCourse>
 						<div>
 							<img src={courseSvg} alt={courseTitle} />
@@ -157,11 +158,33 @@ export const ListLessons = ({userLesson}) => {
 									<S.SpanName>Выберите тренировку</S.SpanName>
 									{course &&
 										course.workout.map((lesson, index) => (
-											<S.Element $enabled={userLesson[courseKey].workout[index].readyStatus}>
-												<S.ElementCheck $enabled={userLesson[courseKey].workout[index].readyStatus}>
-													<svg width="28" height="26" viewBox="0 0 28 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-													<circle cx="12" cy="13.5" r="11.5" stroke="#06B16E"/>
-													<path d="M6 9.81034L11.775 15.5L27 0.5" stroke="#06B16E"/>
+											<S.Element
+												$enabled={
+													userLesson[courseKey].workout[index].readyStatus
+												}
+											>
+												<S.ElementCheck
+													$enabled={
+														userLesson[courseKey].workout[index].readyStatus
+													}
+												>
+													<svg
+														width='28'
+														height='26'
+														viewBox='0 0 28 26'
+														fill='none'
+														xmlns='http://www.w3.org/2000/svg'
+													>
+														<circle
+															cx='12'
+															cy='13.5'
+															r='11.5'
+															stroke='#06B16E'
+														/>
+														<path
+															d='M6 9.81034L11.775 15.5L27 0.5'
+															stroke='#06B16E'
+														/>
 													</svg>
 												</S.ElementCheck>
 												<a
