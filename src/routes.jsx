@@ -14,6 +14,8 @@ import { getUserLessons, auth } from "./components/api/api";
 import { useDispatch } from "react-redux";
 import { signIn } from "./components/store/actions/creators";
 import { ProtectedRoute } from "./components/navigate";
+import LoadingSpinner from "./components/loadingSpinner/loadingSpinner";
+
 
 export const AppRoutes = () => {
   const dispatch = useDispatch();
@@ -43,9 +45,9 @@ export const AppRoutes = () => {
   }, [dispatch]);
 
   if (loading) {
-    return;
+	return (<LoadingSpinner />);
   }
-
+  
   console.log(userData);
 
   return (
