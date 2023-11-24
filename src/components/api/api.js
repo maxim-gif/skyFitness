@@ -1,6 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { getDatabase, ref, set, get, update } from "firebase/database";
-import { getAuth, createUserWithEmailAndPassword, signOut, updatePassword, updateEmail, signInWithEmailAndPassword, sendEmailVerification} from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signOut, updatePassword, updateEmail, signInWithEmailAndPassword, sendEmailVerification, verifyBeforeUpdateEmail} from "firebase/auth";
 
 
 const firebaseConfig = {
@@ -162,17 +162,21 @@ export async function getData() {
     try {
       const user = auth.currentUser;
       if (user) {
-        await updateEmail(user, newEmail).then(() => {
-          sendEmailVerification(user)
-        });
+        await verifyBeforeUpdateEmail(user, newEmail);
+        await updateEmail(user, newEmail);
         console.log("Email updated and verification email sent successfully");
+        return { success: true, message: "Электронная почта обновлена, письмо с подтверждением успешно отправлено." }; 
       } else {
         console.log("No user signed in");
+        return { success: false, message: "No user signed in" };
       }
     } catch (error) {
       console.error("Error updating email:", error);
+      return { success: false, message: 'На новую почту отправлен код для верификации' };
     }
-  }
+  };
+  
+  
 
   export const enter = async (email, password) => {
     try {

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { auth, editEmail, enter } from "../api/api";
+import { editEmail } from "../api/api";
 
 import * as S from "./forms.style";
 
@@ -12,18 +12,18 @@ export const FormLogin = ({ closeModalLogin }) => {
   };
 
   const handleSubmit = async () => {
-	setError('');
-	if (loginName === "") {
-	  setError("Логин не может быть пустым");
-	  return; 
-	}
-	try {
-	  await editEmail(loginName);
-	//   await enter(loginName)
-	  closeModalLogin();
-	} catch (error) {
-	  setError(error.message);
-	}
+    setError('');
+    if (loginName === "") {
+      setError("Логин не может быть пустым");
+      return;
+    }
+    const result = await editEmail(loginName); 
+    if (result.success) {
+      alert(result.message);
+      closeModalLogin();
+    } else {
+      setError(result.message);
+    }
   };
 
   return (
