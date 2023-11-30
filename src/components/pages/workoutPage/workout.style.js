@@ -259,7 +259,7 @@ export const ExProg = styled.input`
 		box-shadow: -400px 0 0 400px ${props => props.$colorBorder};
 		cursor: default;
 		position: relative;
-		right: 2px;
+
 	}
 	&::-webkit-slider-runnable-track {
 		height: 35px;
@@ -305,6 +305,7 @@ export const UlEx = styled.ul`
 	padding-bottom: 52px;
 `;
 export const ButtonProgress = styled.button`
+	display: ${props => props.$enabled ? `none` : `block`};
 	width: 275px;
 	height: 52px;
 	flex-shrink: 0;

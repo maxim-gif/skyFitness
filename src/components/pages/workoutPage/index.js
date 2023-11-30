@@ -2,9 +2,17 @@ import { NavLink } from 'react-router-dom';
 import * as S from './workout.style';
 import { MenuProfile } from '../../menuProf/MenuProfile';
 import { useEffect, useState } from 'react';
-import { changeStatusExercises } from '../../api/api';
+import { changeStatusExercises, changeCounter } from '../../api/api';
+import { useDispatch } from "react-redux";
+import { editProgress, editReadyStatus } from '../../store/actions/creators';
+import { useSelector } from 'react-redux';
+import { type } from '@testing-library/user-event/dist/type';
 
 export const WorkOut = ({ userData, setUserData }) => {
+	setUserData(useSelector((state) => state.api.dataUser))
+	
+	const dispatch = useDispatch();
+
 	const [color, setColor] = useState();
 
 	const [isOpen, setIsOpen] = useState(false);
@@ -19,10 +27,42 @@ export const WorkOut = ({ userData, setUserData }) => {
 
 	const closeModal = () => setActiveModal(null);
 
+	let maxCounter = []
+
 	const storedLesson = window.localStorage.getItem('lesson');
 	const indexExercise = window.localStorage.getItem('indexExercise');
 	const nameCourse = window.localStorage.getItem('nameCourse');
 	const lesson = storedLesson ? JSON.parse(storedLesson) : null;
+	let ExerciseCounter = userData.courses[nameCourse].workout[indexExercise].exercisesCounter
+
+	const [exerciseValues, setExerciseValues] = useState(ExerciseCounter);
+
+	const readyStatus = userData.courses[nameCourse].workout[indexExercise].readyStatus
+
+    const handleInputChange = (index, value) => {
+        const newValues = [...exerciseValues];
+        newValues[index] = value;
+        setExerciseValues(newValues);
+    };
+
+	const handleButtonSubmit = () => {
+		console.log(maxCounter);
+		if (ExerciseCounter.length === exerciseValues.length) {
+			console.log(nameCourse);
+			console.log(indexExercise);
+			changeCounter(nameCourse, indexExercise, exerciseValues)
+			dispatch(editProgress(exerciseValues, nameCourse, indexExercise))
+			closeModal()
+		}
+		let result = exerciseValues.every((element, index) => Number(element) >= Number(maxCounter[index]))
+		console.log(exerciseValues);
+		console.log(maxCounter);
+		console.log(result);
+		if (result) {
+			dispatch(editReadyStatus(nameCourse, indexExercise))
+			changeStatusExercises(nameCourse, indexExercise);
+		}
+	}
 
 	useEffect(() => {
 		if (userData) {
@@ -50,6 +90,10 @@ export const WorkOut = ({ userData, setUserData }) => {
 	const renderExercisesProgress = () => {
 		const cfr = /\d+/;
 		if (lesson.exercises && lesson.exercises.length > 0) {
+			maxCounter = lesson.exercises.map((exercise, index) => {
+				maxCounter[index] = exercise.match(cfr)[0]
+				return maxCounter[index]
+			})
 			return lesson.exercises.map((exercise, index) => (
 				<S.ProgressItem>
 					<S.Ex key={index}>{exercise.slice(0, exercise.indexOf('('))}</S.Ex>
@@ -74,8 +118,6 @@ export const WorkOut = ({ userData, setUserData }) => {
 			return '';
 		}
 	};
-
-	console.log(lesson.exercises);
 
 	useEffect(() => {
 		setColor(false);
@@ -120,6 +162,7 @@ export const WorkOut = ({ userData, setUserData }) => {
 			if (event.data === window.YT.PlayerState.ENDED) {
 				if (nameCourse === 'dancefitness' || nameCourse === 'stepaerobics') {
 					changeStatusExercises(nameCourse, indexExercise);
+					dispatch(editReadyStatus(nameCourse, indexExercise))
 					console.log('Video Ended');
 				}
 			}
@@ -167,7 +210,7 @@ export const WorkOut = ({ userData, setUserData }) => {
 				<S.ListOfExercises>
 					<S.SpanEx>Упражнения:</S.SpanEx>
 					<S.UlEx>{renderExercises()}</S.UlEx>
-					<S.ButtonProgress onClick={() => openModal()}>
+					<S.ButtonProgress onClick={() => openModal()} $enabled={readyStatus}>
 						Заполнить свой прогресс
 					</S.ButtonProgress>
 
@@ -260,7 +303,7 @@ export const WorkOut = ({ userData, setUserData }) => {
 								</S.CloseButton>
 								<S.ExerciseSpanName>Мой прогресс</S.ExerciseSpanName>
 								{lesson.exercises &&
-									lesson.exercises.map((exercise) => {
+									lesson.exercises.map((exercise, index) => {
 										exercise = exercise.replace(/.\(.+\)/, '').toLowerCase();
 
 										return (
@@ -268,11 +311,11 @@ export const WorkOut = ({ userData, setUserData }) => {
 												<S.ExerciseQuestion >
 													Сколько раз вы сделали {exercise}?
 												</S.ExerciseQuestion>
-												<S.ExerciseInput placeholder='Введите значение'></S.ExerciseInput>
+												<S.ExerciseInput type='number' placeholder='Введите значение' value={exerciseValues[index]} onChange={(e) => handleInputChange(index, e.target.value)}></S.ExerciseInput>
 											</S.ExerciseForm>
 										);
 									})}
-								<S.ExerciseButton>Отправить</S.ExerciseButton>
+								<S.ExerciseButton onClick={handleButtonSubmit}>Отправить</S.ExerciseButton>
 							</S.ListOfLessons>
 						</S.BackModal>
 					)}
