@@ -81,7 +81,7 @@ export const ListOfLessons = styled.div`
   flex-wrap: wrap;
   align-content: center;
   width: 444px;
-  height: 626px;
+  padding-bottom: 40px;
   gap: 12px;
   border-radius: 12px;
   background: #fff;
