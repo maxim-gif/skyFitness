@@ -97,6 +97,9 @@ export const Element = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
+  padding: 0 15px 0 15px;
+
   a {
     color: ${props => props.$enabled ? `#06b16e` : `#000000`};
 

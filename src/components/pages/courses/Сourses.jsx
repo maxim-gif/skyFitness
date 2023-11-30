@@ -28,8 +28,6 @@ export const CoursesPage = ({ userData, setUserData }) => {
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
-  const closeModal = () => setModalIsOpen(false);
-
   const [isOpen, setIsOpen] = useState(false);
 
   const [color, setColor] = useState();
@@ -42,6 +40,10 @@ export const CoursesPage = ({ userData, setUserData }) => {
     if (isOpen) {
       toggleOpen();
     }
+  }
+
+  function closeModal() {
+    navigate("/profile");
   }
 
   useEffect(() => {
