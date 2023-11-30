@@ -1,7 +1,17 @@
-import { EDIT_PROGRESS, BAY_COURSE, EDIT_EMAIL, EDIT_PASSWORD, SIGN_OUT, SIGN_IN, REGISTRATION} from '../actions/types'
+import { EDIT_PROGRESS, BAY_COURSE, EDIT_EMAIL, EDIT_PASSWORD, SIGN_OUT, SIGN_IN, REGISTRATION, EDIT_READY_STATUS} from '../actions/types'
 
-export const editProgress = () => ({
+export const editProgress = (value, course, index) => ({
     type: EDIT_PROGRESS,
+    payload: {
+        value, course, index
+    },
+})
+
+export const editReadyStatus = (course, index) => ({
+    type: EDIT_READY_STATUS,
+    payload: {
+        course, index
+    },
 })
 
 export const bay = (data) => ({

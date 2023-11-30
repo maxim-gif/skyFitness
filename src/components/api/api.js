@@ -249,6 +249,21 @@ export const changeStatusExercises = async (courseName, numberExercises) => {
   }
 } 
 
+export const changeCounter = async (courseName, numberExercises, value) => {
+  console.log("change");
+  const user = auth.currentUser;
+  const courseRef = ref(db, 'users/' + user.uid + '/courses/' + courseName + '/workout/' + numberExercises);
+  
+  try {
+      await update(courseRef, {
+        exercisesCounter: value,
+      });
+      console.log('Status purchased successfully');
+  } catch(error) {
+      console.error('Error updating data:', error);
+  }
+} 
+
 export const updateLogin = async () => {
   
 }

@@ -5,8 +5,12 @@ import { MenuProfile } from '../../menuProf/MenuProfile';
 import { ListLessons } from '../../listLesons';
 import { FormPassword } from '../../forms/changePass';
 import { FormLogin } from '../../forms/changeLogin';
+import { useSelector } from 'react-redux';
 
 export const ProfilePage = ({ userData, setUserData }) => {
+
+	setUserData(useSelector((state) => state.api.dataUser))
+
 	const [color, setColor] = useState();
 	const [isOpen, setIsOpen] = useState(false);
 	const [userLesson, setUserLesson] = useState(null);
