@@ -17,13 +17,9 @@ export const FormLogin = ({ closeModalLogin }) => {
       setError("Логин не может быть пустым");
       return;
     }
-    const result = await editEmail(loginName); 
-    if (result.success) {
-      alert(result.message);
-      closeModalLogin();
-    } else {
+    const result = await editEmail(loginName);  
       setError(result.message);
-    }
+      console.log(result.message);
   };
 
   return (

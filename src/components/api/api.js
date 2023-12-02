@@ -1,6 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { getDatabase, ref, set, get, update } from "firebase/database";
-import { getAuth, createUserWithEmailAndPassword, signOut, updatePassword, updateEmail, signInWithEmailAndPassword, sendEmailVerification, verifyBeforeUpdateEmail} from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signOut, updatePassword, reauthenticateWithCredential , signInWithEmailAndPassword, verifyBeforeUpdateEmail} from "firebase/auth";
 
 
 const firebaseConfig = {
@@ -158,18 +158,10 @@ export async function getData() {
   export const editEmail = async (newEmail) => {
     try {
       const user = auth.currentUser;
-      if (user) {
-        await verifyBeforeUpdateEmail(user, newEmail);
-        await updateEmail(user, newEmail);
-        console.log("Email updated and verification email sent successfully");
-        return { success: true, message: "Электронная почта обновлена, письмо с подтверждением успешно отправлено." }; 
-      } else {
-        console.log("No user signed in");
-        return { success: false, message: "No user signed in" };
-      }
+      await verifyBeforeUpdateEmail(user, newEmail);
+      return { success: true, message: "Письмо с подтверждением успешно отправлено." }; 
     } catch (error) {
-      console.error("Error updating email:", error);
-      return { success: false, message: 'На новую почту отправлен код для верификации' };
+      return { success: false, message: error.message === "Firebase: Error (auth/requires-recent-login)." ? "Необходима повторная авторизация": error.message }; 
     }
   };
   
@@ -179,6 +171,10 @@ export async function getData() {
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       const userId = userCredential.user.uid;
+      const emailRef = ref(db, 'users/' + userId)
+      await update(emailRef, {
+        email: userCredential.user.email,
+      });
       const userRef = ref(db, 'users/' + userId);
       let snapshot  = await get(userRef);
       if (snapshot.exists()) {
