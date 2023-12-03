@@ -150,7 +150,7 @@ export const NameCourse = styled.span`
 	position: absolute;
 	color: #000;
 	font-variant-numeric: lining-nums proportional-nums;
-	font-family: Abhaya Libre ExtraBold;
+	font-family: 'Abhaya Libre', serif;
 	font-size: 36px;
 	font-style: normal;
 	font-weight: 800;

@@ -3,14 +3,12 @@ import { createGlobalStyle } from 'styled-components';
 export const GlobalStyle = createGlobalStyle`
 
 @font-face {
-  font-family: 'Abhaya Libre', sans-serif;
+  font-family: 'Abhaya Libre ExtraBold', serif;
   font-family: 'StratosSkyeng', sans-serif;
   src: 
-    url("../public/fonts/abhayalibre-extrabold-webfont.woff2") format("woff2"),
-    url("../public/fonts/abhayalibre-extrabold-webfont.woff") format("woff"),
-    url("../public/fonts/StratosSkyeng.woff2") format("woff2"),
-    url("../public/fonts/StratosSkyeng.woff") format("woff"),
-   
+    url("../public/fonts/AbhayaLibre-ExtraBold.ttf") ,
+    url("../public/fonts/StratosSkyeng.woff2") ,
+    url("../public/fonts/StratosSkyeng.woff") , 
 }
 
 * {

@@ -80,7 +80,7 @@ export const ExerciseSpanName = styled.span`
 	font-style: normal;
 	text-overflow: ellipsis;
 	overflow: hidden;
-	font-family: 'StratosSkyeng';
+	font-family: 'StratosSkyeng', sans-serif;
 	font-size: 32px;
 	font-weight: 400;
 	line-height: 40px;
@@ -152,7 +152,7 @@ export const NameCourse = styled.span`
 	position: absolute;
 	color: #000;
 	font-variant-numeric: lining-nums proportional-nums;
-	font-family: Abhaya Libre ExtraBold;
+	font-family: 'Abhaya Libre', serif;
 	font-size: 36px;
 	font-style: normal;
 	font-weight: 800;
@@ -375,7 +375,7 @@ export const ExerciseForm = styled.form`
 `;
 
 export const ExerciseQuestion = styled.p`
-	font-family: 'StratosSkyeng';
+	font-family: 'StratosSkyeng', sans-serif;
 	font-size: 18px;
 	font-weight: 400;
 	line-height: 24px;
@@ -391,7 +391,7 @@ export const ExerciseInput = styled.input`
 	border-top: none;
 	border-left: none;
 	border-right: none;
-	font-family: 'StratosSkyeng';
+	font-family: 'StratosSkyeng', sans-serif;
 	font-size: 18px;
 	font-weight: 400;
 	line-height: 24px;
@@ -407,7 +407,7 @@ export const ExerciseButton = styled.button`
 	width: 278px;
 	height: 52px;
 	border-radius: 46px;
-	font-family: 'StratosSkyeng';
+	font-family: 'StratosSkyeng', sans-serif;
 	font-size: 18px;
 	font-weight: 400;
 	line-height: 24px;
