@@ -94,7 +94,7 @@ export const ExerciseG = styled.g`
 `;
 
 export const ExerciseName = styled.span`
-	font-family: 'Abhaya Libre', sans-serif;
+	font-family: 'Abhaya Libre', serif;
 	position: absolute;
 	top: 35px;
 	left: 30px;

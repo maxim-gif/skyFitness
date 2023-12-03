@@ -25,57 +25,56 @@ export const TextImg = styled.div`
   padding-top: 75px;
 `;
 export const Button = styled.button`
-  display: inline-flex;
-  padding: 5px 16px 7px 16px;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  border-radius: 46px;
-  background: #140d40;
-  color: #fff;
-  text-align: center;
-  font-variant-numeric: lining-nums proportional-nums;
-  font-family: 'StratosSkyeng';
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 24px;
-  &:hover {
-    background: #2d1f79;
-  }
+	display: inline-flex;
+	padding: 5px 16px 7px 16px;
+	justify-content: center;
+	align-items: center;
+	gap: 8px;
+	border-radius: 46px;
+	background: #140d40;
+	color: #fff;
+	text-align: center;
+	font-variant-numeric: lining-nums proportional-nums;
+	font-family: 'StratosSkyeng', sans-serif;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 24px;
+	&:hover {
+		background: #2d1f79;
+	}
 
-  &:active {
-    background: #3b29a1;
-  }
+	&:active {
+		background: #3b29a1;
+	}
 `;
 
 export const Text = styled.p`
-    z-index: 1;
-    position: absolute;
-    padding-left: 30px;
-    border-radius: 30px;
-    color: #000;
-    font-variant-numeric: lining-nums proportional-nums;
-	  font-family: 'StratosSkyeng';
-    font-size: 64px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 72px;
-    letter-spacing: -0.8px;
-    padding-top: 30px;
-
+	z-index: 1;
+	position: absolute;
+	padding-left: 30px;
+	border-radius: 30px;
+	color: #000;
+	font-variant-numeric: lining-nums proportional-nums;
+	font-family: 'StratosSkyeng', sans-serif;
+	font-size: 64px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 72px;
+	letter-spacing: -0.8px;
+	padding-top: 30px;
 `;
 export const Li = styled.li`
-  color: #000;
-  font-variant-numeric: lining-nums proportional-nums;
-  font-family: 'StratosSkyeng';
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 32px; /* 133.333% */
-  width: 244px;
-  text-align: left;
-  list-style-type: none;
+	color: #000;
+	font-variant-numeric: lining-nums proportional-nums;
+	font-family: 'StratosSkyeng', sans-serif;
+	font-size: 24px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 32px; /* 133.333% */
+	width: 244px;
+	text-align: left;
+	list-style-type: none;
 `;
 
 export const Ul = styled.div`
@@ -86,22 +85,22 @@ export const Ul = styled.div`
   justify-content: space-between;
 `;
 export const NnumberLi = styled.div`
-  border-radius: 34px;
-  background: rgb(199, 233, 87);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 67px;
-  height: 67px;
-  color: #000;
-  text-align: center;
-  font-variant-numeric: lining-nums proportional-nums;
-  font-family: 'StratosSkyeng';
-  font-size: 32px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 40px; /* 125% */
+	border-radius: 34px;
+	background: rgb(199, 233, 87);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 67px;
+	height: 67px;
+	color: #000;
+	text-align: center;
+	font-variant-numeric: lining-nums proportional-nums;
+	font-family: 'StratosSkyeng', sans-serif;
+	font-size: 32px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 40px; /* 125% */
 `;
 
 export const Ulli = styled.div`
@@ -134,43 +133,43 @@ export const DirectionsOl = styled.div`
 `;
 
 export const LiDw = styled.li`
-  color: #000;
-  font-variant-numeric: lining-nums proportional-nums;
-  font-family: StratosSkyeng;
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 32px; /* 133.333% */
-  width: 244px;
-  text-align: left;
-  list-style-type: disc;
+	color: #000;
+	font-variant-numeric: lining-nums proportional-nums;
+	font-family: 'StratosSkyeng', sans-serif;
+	font-size: 24px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 32px; /* 133.333% */
+	width: 244px;
+	text-align: left;
+	list-style-type: disc;
 `;
 
 export const Description = styled.div`
-  margin-top: 75px;
-  width: 100%;
-  font-family: StratosSkyeng;
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 32px; /* 133.333% */
-  text-align: left;
-  text-align: justify;
+	margin-top: 75px;
+	width: 100%;
+	font-family: 'StratosSkyeng', sans-serif;
+	font-size: 24px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 32px; /* 133.333% */
+	text-align: left;
+	text-align: justify;
 `;
 export const Span = styled.span`
-  text-align: left;
-  z-index: 10;
-  width: 823px;
-  position: absolute;
-  color: #000;
-  padding-left: 52px;
-  padding-top: 46px;
-  font-variant-numeric: lining-nums proportional-nums;
-  font-family: StratosSkyeng;
-  font-size: 32px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 40px; /* 125% */
+	text-align: left;
+	z-index: 10;
+	width: 823px;
+	position: absolute;
+	color: #000;
+	padding-left: 52px;
+	padding-top: 46px;
+	font-variant-numeric: lining-nums proportional-nums;
+	font-family: 'StratosSkyeng', sans-serif;
+	font-size: 32px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 40px; /* 125% */
 `;
 export const Foot = styled.div`
   position: relative;
@@ -187,7 +186,7 @@ export const ButtonS = styled.button`
   flex-shrink: 0;
   color: #fff;
   font-variant-numeric: lining-nums proportional-nums;
-  font-family: StratosSkyeng;
+  font-family: 'StratosSkyeng', sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;

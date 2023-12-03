@@ -117,8 +117,7 @@ export const MainText = styled.h1`
 	color: #fff;
 	font-variant-numeric: lining-nums proportional-nums;
 	font-feature-settings: 'clig' off, 'liga' off;
-	/* Pres → Heading Xl */
-	font-family: 'StratosSkyeng';
+	font-family: 'StratosSkyeng', sans-serif;
 	font-size: 160px;
 	font-style: normal;
 	font-weight: 400;
