@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { editEmail } from "../api/api";
+import { editEmail } from "../../";
 
 import * as S from "./forms.style";
 

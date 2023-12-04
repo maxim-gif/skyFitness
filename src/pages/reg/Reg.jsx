@@ -20,7 +20,7 @@ export const Reg = () => {
 	const handleRegistration = async (event) => {
 		event.preventDefault();
 		if (password !== repeatPassword) {
-		  alert('Пароли не совпадают');
+			setError('Пароли не совпадают');
 		  return;
 		}
 	  
