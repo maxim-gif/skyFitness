@@ -186,13 +186,13 @@ export const CoursesPage = ({ userData, setUserData }) => {
                   >
                     <stop
                       offset="0"
-                      stop-color="#262626"
-                      stop-opacity="0"
+                      stopColor="#262626"
+                      stopOpacity="0"
                     ></stop>
                     <stop
                       offset="1"
-                      stop-color="#262626"
-                      stop-opacity=".8"
+                      stopColor="#262626"
+                      stopOpacity=".8"
                     ></stop>
                   </linearGradient>
                   <circle
@@ -212,13 +212,13 @@ export const CoursesPage = ({ userData, setUserData }) => {
                   >
                     <stop
                       offset="0"
-                      stop-color="#262626"
-                      stop-opacity="0"
+                      stopColor="#262626"
+                      stopOpacity="0"
                     ></stop>
                     <stop
                       offset="1"
-                      stop-color="#262626"
-                      stop-opacity=".8"
+                      stopColor="#262626"
+                      stopOpacity=".8"
                     ></stop>
                   </linearGradient>
                   <polygon
@@ -236,13 +236,13 @@ export const CoursesPage = ({ userData, setUserData }) => {
                   >
                     <stop
                       offset="0"
-                      stop-color="#262626"
-                      stop-opacity="0"
+                      stopColor="#262626"
+                      stopOpacity="0"
                     ></stop>
                     <stop
                       offset="1"
-                      stop-color="#262626"
-                      stop-opacity=".8"
+                      stopColor="#262626"
+                      stopOpacity=".8"
                     ></stop>
                   </linearGradient>
                   <polygon

@@ -160,7 +160,7 @@ export const ListLessons = ({ userLesson }) => {
                   <S.SpanName>Выберите тренировку</S.SpanName>
                   {course &&
                     course.workout.map((lesson, index) => (
-                      <S.Element
+                      <S.Element key={index}
                         $enabled={
                           userLesson[courseKey].workout[index].readyStatus
                         }
