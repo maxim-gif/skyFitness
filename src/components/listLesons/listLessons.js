@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
-import { getData } from "../api/api";
+import { getData } from "../../api/api";
 import * as S from "./listLessons.style";
 import { useNavigate } from "react-router";
+import PropTypes from 'prop-types';
+import React from 'react';
 
 export const ListLessons = ({ userLesson }) => {
   const [values, setValues] = useState([]);
@@ -204,4 +206,7 @@ export const ListLessons = ({ userLesson }) => {
       })}
     </S.MyCourses>
   );
+};
+ListLessons.propTypes = {
+  userLesson: PropTypes.object.isRequired,
 };

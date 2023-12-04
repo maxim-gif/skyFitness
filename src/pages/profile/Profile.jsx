@@ -1,11 +1,13 @@
 import { NavLink } from 'react-router-dom';
 import * as S from './Profile.styles';
 import { useEffect, useState } from 'react';
-import { MenuProfile } from '../../menuProf/MenuProfile';
-import { ListLessons } from '../../listLesons';
-import { FormPassword } from '../../forms/changePass';
-import { FormLogin } from '../../forms/changeLogin';
+import { MenuProfile } from '../../components/menuProf/MenuProfile';
+import { ListLessons } from '../../components/listLesons/listLessons';
+import { FormPassword } from '../../components/forms/changePass';
+import { FormLogin } from '../../components/forms/changeLogin';
 import { useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 export const ProfilePage = ({ userData, setUserData }) => {
 
@@ -90,3 +92,7 @@ export const ProfilePage = ({ userData, setUserData }) => {
 		</S.Wrapper>
 	);
 };
+ProfilePage.propTypes = {
+	userData: PropTypes.object.isRequired,
+	setUserData: PropTypes.func.isRequired,
+  };

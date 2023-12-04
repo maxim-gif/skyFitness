@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import * as S from './Main.styles';
 import { MainArray } from './MainArray';
 import { NavLink } from 'react-router-dom';
-import { MenuProfile } from '../../menuProf/MenuProfile';
+import { MenuProfile } from '../../components/menuProf/MenuProfile';
+import PropTypes from 'prop-types';
 
 export const Main = ({ userData, setUserData }) => {
 	function goTop() {
@@ -90,3 +91,7 @@ export const Main = ({ userData, setUserData }) => {
 		</S.Wrapper>
 	);
 };
+Main.propTypes = {
+	userData: PropTypes.object.isRequired,
+	setUserData: PropTypes.func.isRequired,
+  };

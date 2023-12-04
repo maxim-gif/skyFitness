@@ -1,5 +1,7 @@
 import { useState } from "react";
-import { editEmail } from "../../";
+import { editEmail } from "../../api/api";
+import PropTypes from 'prop-types';
+import React from 'react';
 
 import * as S from "./forms.style";
 
@@ -100,4 +102,7 @@ export const FormLogin = ({ closeModalLogin }) => {
       </S.Container>
     </S.Wrapper>
   );
+};
+FormLogin.propTypes = {
+  closeModalLogin: PropTypes.func.isRequired,
 };

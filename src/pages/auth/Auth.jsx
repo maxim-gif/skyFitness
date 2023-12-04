@@ -3,7 +3,7 @@ import * as S from './Auth.styles';
 import { NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux'
 import { signIn } from '../../store/actions/creators'
-import { enter } from '../../api/api'
+import { enter } from '../../api/api.js'
 import { useNavigate } from 'react-router-dom'
 
 export const Auth = () => {

@@ -1,7 +1,10 @@
 import { useState, useEffect } from 'react';
 import * as S from "./forms.style"
-import { editPassword, enter, auth } from "../api/api";
+import { editPassword, enter, auth } from "../../api/api";
 import { onAuthStateChanged } from 'firebase/auth';
+import PropTypes from 'prop-types';
+import React from 'react';
+
 
 export const FormPassword = ({ closeModal }) => {
 	const [password, setPassword] = useState('');
@@ -109,3 +112,6 @@ export const FormPassword = ({ closeModal }) => {
 		</S.Wrapper>
 	);
 };
+FormPassword.propTypes = {
+	closeModal: PropTypes.func.isRequired,
+  };

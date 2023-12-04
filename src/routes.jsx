@@ -1,18 +1,18 @@
 import React from "react";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
-import { Main } from "./components/pages/main/Main";
-import { Auth } from "./components/pages/auth/Auth";
-import { Reg } from "./components/pages/reg/Reg";
-import { ProfilePage } from "./components/pages/profile/Profile";
-import { CoursesPage } from "./components/pages/courses/Сourses";
-import { NotFoundPage } from "./components/pages/notFound/NotFound";
-import { WorkOut } from "./components/pages/workoutPage";
+import { Main } from "./pages/main/Main";
+import { Auth } from "./pages/auth/Auth";
+import { Reg } from "./pages/reg/Reg";
+import { ProfilePage } from "./pages/profile/Profile";
+import { CoursesPage } from "./pages/courses/Сourses";
+import { NotFoundPage } from "./pages/notFound/NotFound";
+import { WorkOut } from "./pages/workoutPage/workout";
 
 import { useEffect, useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
-import { getUserLessons, auth } from "./components/api/api";
+import { getUserLessons, auth } from "./api/api";
 import { useDispatch } from "react-redux";
-import { signIn } from "./components/store/actions/creators";
+import { signIn } from "./store/actions/creators";
 import { ProtectedRoute } from "./components/navigate";
 import LoadingSpinner from "./components/loadingSpinner/loadingSpinner";
 

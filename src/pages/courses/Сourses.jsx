@@ -4,22 +4,23 @@ import React, { useEffect, useState } from "react";
 import { bayCourse } from "../../api/api";
 import { useDispatch } from "react-redux";
 import { bay } from "../../store/actions/creators";
+import PropTypes from 'prop-types';
 
-import foot from "../../../img/coursesImage/foot.svg";
-import svgAero from "../../../img/coursesImage/svgAero.svg";
-import svgStretch from "../../../img/coursesImage/svgStretch.svg";
-import svgYoga from "../../../img/coursesImage/svgYoga.svg";
-import svgBodyflex from "../../../img/coursesImage/svgBodyflex.svg";
-import svgDance from "../../../img/coursesImage/svgDance.svg";
-import hand from "../../../img/coursesImage/hand.svg";
+import foot from "../../../src/img/coursesImage/foot.svg";
+import svgAero from "../../../src/img/coursesImage/svgAero.svg";
+import svgStretch from "../../../src/img/coursesImage/svgStretch.svg";
+import svgYoga from "../../../src/img/coursesImage/svgYoga.svg";
+import svgBodyflex from "../../../src/img/coursesImage/svgBodyflex.svg";
+import svgDance from "../../../src/img/coursesImage/svgDance.svg";
+import hand from "../../../src/img/coursesImage/hand.svg";
 import { getData } from "../../api/api";
-import { MenuProfile } from "../../menuProf/MenuProfile";
+import { MenuProfile } from "../../components/menuProf/MenuProfile";
 
 export const CoursesPage = ({ userData, setUserData }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const logo = `${process.env.PUBLIC_URL}/logo2.png`;
+  const logo = `${process.env.src_URL}/logo2.png`;
 
   let { id } = useParams();
 
@@ -260,4 +261,8 @@ export const CoursesPage = ({ userData, setUserData }) => {
       </S.Foot>
     </S.Wrapper>
   );
+};
+CoursesPage.propTypes = {
+  userData: PropTypes.object.isRequired,
+  setUserData: PropTypes.func.isRequired,
 };

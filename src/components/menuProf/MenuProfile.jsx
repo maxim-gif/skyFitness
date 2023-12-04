@@ -2,8 +2,11 @@ import * as S from './MenuProfile.styles';
 import { NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { signOut } from '../store/actions/creators';
-import { exit } from '../api/api';
+import { signOut } from '../../store/actions/creators';
+import { exit } from '../../api/api';
+import PropTypes from 'prop-types';
+import React from 'react';
+
 
 export const MenuProfile = ({ isOpen, color, setUserData }) => {
 	const navigate = useNavigate();
@@ -53,3 +56,8 @@ export const MenuProfile = ({ isOpen, color, setUserData }) => {
 		</S.Dropdown>
 	);
 };
+MenuProfile.propTypes = {
+	isOpen: PropTypes.bool.isRequired,
+	color: PropTypes.bool.isRequired,
+	setUserData: PropTypes.func.isRequired,
+  };
