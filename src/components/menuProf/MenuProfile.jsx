@@ -58,6 +58,6 @@ export const MenuProfile = ({ isOpen, color, setUserData }) => {
 };
 MenuProfile.propTypes = {
 	isOpen: PropTypes.bool.isRequired,
-	color: PropTypes.bool.isRequired,
+	color: PropTypes.bool,
 	setUserData: PropTypes.func.isRequired,
   };
